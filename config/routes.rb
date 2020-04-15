@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/orders/confirm" => "orders#confirm", as: "confirm"
   get "/orders/complete" => "orders#conplete", as: "complete"
   resource :customers, only: [:show, :edit, :update]
-  get "/quit" => "customers#quit", as: "quit"
+  get "/customers/quit" => "customers#quit", as: "quit"
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
 
