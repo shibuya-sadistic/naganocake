@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # admins routes
   namespace :admins do
   	root to: "home#top", as: "top"
-  	resources :products, only: [:new, :create, :show, :edit, :update]
+  	resources :products, only: [:index, :new, :create, :show, :edit, :update]
   	resources :genres, only: [:index, :create, :edit, :update]
   	resources :customers, only: [:index, :show, :edit, :update]
   	resources :orders, only: [:index, :show, :update]
