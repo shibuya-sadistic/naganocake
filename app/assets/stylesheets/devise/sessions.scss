@@ -1,0 +1,44 @@
+// Place all the styles related to the devise::sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customer-login-text,
+.customer-signup-text {
+	background-color: #ededed;
+	display: inline;
+	padding: 0 10px;
+	
+}
+
+.customer-login,
+.customer-signup {
+	margin-bottom: 20px;
+}
+
+.log-in {
+	margin-left: 185px;
+	margin-bottom: 30px;
+	padding: 5px 20px;
+
+}
+
+
+.forget-password {
+	text-align: right;
+}
+
+.email-field label,
+.password-field label,
+.customer-signup-path {
+	padding-left: 80px;
+}
+
+
+.email-field input[type="email"],
+.password-field input[type="password"] {
+	border: 1px solid #a6a6a6;
+	border-radius: 3px;
+	float: right;
+	height: 30px;
+
+}
