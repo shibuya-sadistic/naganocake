@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Naganocake</title>
+    <title>Naganocake!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,47 @@
   </head>
 
   <body>
+    <header>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="naganocake">
+      <span>Naganocake</span>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarEexample1">
+      <ul class="nav navbar-nav">
+   <% if customer_signed_in? %>
+  <p>ようこそ<%= curent_customer.last_name　%>さん！</p>
+   <li><%= link_to " マイページ", customers_path　%></li>
+
+   <li>
+   <%= link_to "商品一覧", products_path　%>
+   </li>
+   <li>
+   <%= link_to "カート", cart_items_path %>
+   </li>
+   <li>
+   <%= link_to " ログアウト", destroy_customer_session_path, method: :delete %>
+   </li>
+   <% else %>
+   <li>
+   <%= link_to "商品一覧", products_path %>
+   </li>
+
+   <li>
+   <%= link_to "新規登録", new_customer_registration_path %>
+   </li>
+   <li>
+   <%= link_to "ログイン", customer_session_path %>
+   </li>
+
+   <% end %>
+   </ul>
+   </div>
+ </div>
+ </div>
+</nav>
+   </header>
     <%= yield %>
   </body>
 </html>
