@@ -1,25 +1,26 @@
-
 <div class="container">
   <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-sm-offset-3 col-xs-6">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :メールアドレス %>
-          <%= f.email_field :email, size: 30, autofocus: true, autocomplete: "email" %>
-        </div>
 
-        <br>
+        <div class="form-group row">
+            <label for="email" class="col-sm-4 col-form-label">メールアドレス</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" nama="email">
+            </div>
+          </div>
 
-        <div class="field">
-          <%= f.label :パスワード %>
-          <%= f.password_field :password, size: 30, autocomplete: "current-password" %>
-        </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 col-form-label">パスワード</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" nama="password">
+            </div>
+          </div>
 
-        <br>
-        
-        <div class="actions">
-          <button class="log-in btn btn-info" type="submit">ログイン</button>
+          <div class="actions col-sm-offset-5">
+            <button class="log-in btn btn-info" type="submit">ログイン</button>
+          </div>
         </div>
       <% end %>
 
