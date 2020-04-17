@@ -1,6 +1,7 @@
-// Place all the styles related to the devise::sessions controller here.
+// Place all the styles related to the devise::registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 .container {
 	margin-top: 50px;
@@ -10,24 +11,18 @@
 .customer-login,
 .customer-signup {
 	margin-bottom: 20px;
+	margin-left: 20px;
 }
 
-.customer-signup {
-	margin-top: 20px;
-}
 
-.customer-login-text,
-.customer-signup-text {
+.customer-signup-text,
+.customer-login-text {
 	background-color: #ededed;
 	display: inline;
 	padding: 0 10px;
-	font-size: 15px;
+	font-size: 20px;
 }
 
-.forget-password {
-	text-align: right;
-}
-
-.log-in {
-	padding: 0 20px;
+.sign-up {
+	padding: 20px;
 }

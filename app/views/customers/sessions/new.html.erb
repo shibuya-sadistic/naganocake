@@ -1,47 +1,49 @@
-<%= stylesheet_link_tag 'devise/sessions' %>
-
 <div class="container">
   <div class="row">
-    <div class="col-xs-offset-2 col-xs-8">
+    <div class="col-sm-offset-2 col-sm-7">
 
       <div class="customer-login">
         <p class="customer-login-text">会員の方はこちらからログイン</p>
       </div>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="email-field">
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, size: 60, autofocus: true, autocomplete: "email" %>
+          
+          <div class="form-group row">
+            <label for="email" class="col-sm-offset-1 col-sm-3 col-form-label">メールアドレス</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" nama="email">
+            </div>
           </div>
 
-          <br>
-
-          <div class="password-field">
-            <%= f.label :パスワード %>
-            <%= f.password_field :password, size: 60, autocomplete: "current-password" %>
+          <div class="form-group row">
+            <label for="password" class="col-sm-offset-1 col-sm-3 col-form-label">パスワード</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" nama="password">
+            </div>
           </div>
-
-          <br>
 
           <div class="forget-password">
             <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %>
           </div>
-          
 
-          <div class="actions-customer-login">
+          <div class="actions-customer-login col-sm-offset-4 col-sm-2">
             <button class="log-in btn btn-info" type="submit">ログイン</button>
           </div>
         <% end %>
+
     </div>
 
 
-    <div class="col-xs-offset-2 col-xs-8">
-
+    <div class="col-sm-offset-2 col-sm-7">
       <div class="customer-signup">
         <p class="customer-signup-text">登録がお済みでない方</p>
       </div>
-      <p class="customer-signup-path"><%=link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。</p>
+
+      <div class="col-sm-offset-1">
+        <p><%=link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。</p>
+      </div>
 
     </div>
+
   </div>
 </div>
