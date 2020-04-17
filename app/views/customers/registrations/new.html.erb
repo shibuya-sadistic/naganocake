@@ -1,29 +1,96 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-9">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="customer-signup">
+        <p class="customer-signup-text">新規会員登録</p>
+      </div>
+    
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="form-group row">
+            <label for="name" class="col-sm-4 col-form-label">名前</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="last_name">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="first_name">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name_kana" class="col-sm-4 col-form-label">フリガナ</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="last_name_kana">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="first_name_kana">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="email" class="col-sm-4 col-form-label">メールアドレス</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="postcode">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="postcode" class="col-sm-4 col-form-label">郵便番号（ハイフンなし</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="postcode">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="address" class="col-sm-4 col-form-label">住所</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" nama="address">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="tel" class="col-sm-4 col-form-label">電話番号（ハイフンなし）</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="tel">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="password" class="col-sm-4 col-form-label">パスワード<% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em></label><% end %>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="password">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="password_confirmation" class="col-sm-4 col-form-label">パスワード（確認用）</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" nama="password_confirmation">
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="actions col-sm-offset-6">
+           <button class="sign-up btn btn-success" type="submit">新規登録</button>
+         </div>
+        </div>
+
+       <% end %>
+
+    
+
+      <div class="customer-login">
+        <p class="customer-login-text">既に登録済みの方</p>
+      </div>
+
+      <div class="col-sm-offset-1">
+         <p class="customer-signin-path">
+          <%=link_to 'こちら', new_customer_session_path %>からログインしてください。</p>
+      </div>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "customers/shared/links" %>
+</div>
