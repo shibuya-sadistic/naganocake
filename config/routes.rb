@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "/customers/quit" => "customers#quit", as: "quit"
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
-  get 'products/genres/:id', to: 'products#index', as: :products_genre
 
   # admins routes
   namespace :admins do
