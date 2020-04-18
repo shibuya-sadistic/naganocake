@@ -1,11 +1,13 @@
+<% price = @product.price * 1.1 %>
+
 <div class="container">
-  <div class="row product-detail">
+  <div class="row">
 	<h4>商品　詳細画面</h4>
   </div>
 
   <div class="row">
   	<div class="col-sm-offset-1 col-sm-3 product-image">
-  		<%= image_tag 'no_image.jpg', size: '200x150' %>
+  		<%= attachment_image_tag @product, :image, :fill, 200, 150, format: 'jpeg', fallback: 'no_image.jpg' %>
   	</div>
 
    	  <div class="col-sm-offset-1 col-sm-4 product-text">
@@ -25,7 +27,7 @@
   				</tr>
   				<tr>
   					<td>税込価格（税抜価格）</td>
-  					<td><%= @product.price %>円</td>
+  					<td><%= @product.price %> (<%= price.round %>) 円</td>
   				</tr>
   				<tr>
   					<td>販売ステータス</td>

@@ -10,11 +10,6 @@ Admin.create!(
    password: '123456'
 )
 
-Customer.create!(
-   email: 'ringo@dwc.com',
-   password: '123456'
-)
-
 50.times do
   # gimei = Gimei.new
 
