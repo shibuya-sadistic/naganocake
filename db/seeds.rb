@@ -10,23 +10,23 @@ Admin.create!(
    password: '123456'
 )
 
-50.times do
-  # gimei = Gimei.new
+# 50.times do
+#   # gimei = Gimei.new
 
-  Customer.create!(
-    last_name: Gimei.last.kanji,
-    first_name: Gimei.first.kanji,
-    last_name_kana: Gimei.last.hiragana,
-    first_name_kana: Gimei.first.hiragana,
-    postcode: sprintf("%.7d", rand(10000000)),
-    address: Gimei.address.kanji,
-    tel: "123456789",
-    status: true,
-    email: Faker::Internet.email,
-    password: "123456",
-    password_confirmation: "123456"
-  )
-end
+#   Customer.create!(
+#     last_name: Gimei.last.kanji,
+#     first_name: Gimei.first.hiragana,
+#     last_name_kana: Gimei.last.kanji,
+#     first_name_kana: Gimei.first.hiragana,
+#     postcode: sprintf("%.7d", rand(10000000)),
+#     address: Gimei.address.kanji,
+#     tel: "123456789",
+#     status: true,
+#     email: Faker::Internet.email,
+#     password: "123456",
+#     password_confirmation: "123456"
+#   )
+# end
 
 Genre.create(
 	name: "test1",
