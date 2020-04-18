@@ -8,7 +8,7 @@
     <div class="row">
 
   	   <div class="col-sm-offset-1 col-sm-3 product-image">
-  		    <%= attachment_image_tag @product, :image, :fill, 200, 150, format: 'jpeg', fallback: 'no_image.jpg' %>
+  		    <%= attachment_image_tag @product, :image, :fill, 200, 150, format: 'jpeg', fallback: 'no_image.jpg', size: '200x150' %>
           <%=f.label :image, '画像選択', class: "btn btn-info image-btn" %>
           <%= f.attachment_field :image, style: 'display: none;' %>
   	   </div>

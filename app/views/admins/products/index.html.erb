@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="row">
-  	<h4>商品一覧画面</h4>
-  </div>
-			<div class="row">
-				<div class="col-sm-offset-1 col-sm-10">
+	<div class="row">
+  		<h4>商品一覧画面</h4>
+  	</div>
+		<div class="row">
+			<div class="col-sm-offset-1 col-sm-10">
 				<table class="table">
-				  <thead>
-					<tr>
+			  		<thead>
+	    			  <tr>
 						<th class="index">商品ID</th>
 						<th class="index">商品名</th>
 						<th class="index">税抜価格</th>
 						<th class="index">ジャンル</th>
 						<th class="index">ステータス</th>
-					</tr>
-				  </thead>
+					  </tr>
+				  	</thead>
 
-				  <tbody>
+				  	<tbody>
 					  <% if @products.present? %>
 		 			  <% @products.each do |product| %>
 						<tr>
@@ -31,16 +31,13 @@
 					  <% end %>
 					  <% end %>
 
-				  </tbody>
-				
-
-
+				  	</tbody>
 				</table>
+			</div>
 
+			<div class="col-sm-offset-5">
 				<%= paginate @products, class: "paginate" %>
-				
-				</div>
 			</div>
 		</div>
-	</div>
 </div>
+
