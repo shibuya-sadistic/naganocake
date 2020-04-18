@@ -1,1 +1,35 @@
-<h1>admins custemers index</h1>
+<div class="container">
+	<div class="row">
+		<h2>会員一覧画面</h2>
+		<div class="col-xs-12 col-md-8 col-md-offset-2">
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr>
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customers.each do |customer| %>
+						<tr onclick='window.location="<%= '/admins/customers/' + customer.id.to_s %>"' role="link">
+							<th><%= customer.id %></th>
+							<td>
+								<%= link_to customer.last_name + customer.first_name, admins_customer_path(customer) %>
+							</td>
+							<td><%= customer.email %></td>
+							<td>
+								<% if customer.status == true %>
+									有効
+								<% else %>
+									無効
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
