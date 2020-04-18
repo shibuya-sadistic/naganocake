@@ -1,1 +1,25 @@
-<h1>admins::products edit</h1>
+<div class="container">
+  <div class="row product-edit">
+	<h4>商品　編集画面</h4>
+  </div>
+
+  <div class="row">
+  	<div class="col-sm-offset-1 col-sm-3 product-image">
+  		<%= image_tag 'no_image.jpg', size: '200x150' %>
+  	</div>
+
+  	<div class="col-sm-offset-1 col-sm-4 product-text">
+  		
+  	  
+  	</div>
+
+  	 <div class="row">
+      <div class="col-sm-offset-10 col-sm-2 button">
+      	<%= link_to edit_admins_product_path do%>
+  		<button class="btn btn-info" type="submit">変更を保存</button>
+  		<% end %>
+
+  	  </div>
+  	</div>
+
+
