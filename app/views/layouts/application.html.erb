@@ -20,11 +20,11 @@
       <div class="collapse navbar-collapse" id="navbarEexample1">
       <ul class="nav navbar-nav">
    <% if customer_signed_in? %>
-  <p>ようこそ<%= current_customer.last_name　%>さん！</p>
-   <li><%= link_to " マイページ", customers_path　%></li>
+  <p>ようこそ<%= current_customer.last_name %>さん！</p>
+   <li><%= link_to " マイページ", customers_path %></li>
 
    <li>
-   <%= link_to "商品一覧", products_path　%>
+   <%= link_to "商品一覧", products_path %>
    </li>
    <li>
    <%= link_to "カート", cart_items_path %>
