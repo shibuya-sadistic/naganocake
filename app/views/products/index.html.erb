@@ -6,7 +6,7 @@
 			  	<ul class="list-group">
 				  	<% @genres.each do |genre| %>
 				      <li class="list-group-item">
-				      	<%= link_to genre.name, products_path(genre), class: "" %>
+				      	<%= link_to genre.name, products_genre_path(genre.id), class: "" %>
 				      </li>
 				    <% end %>
 			  	</ul>
