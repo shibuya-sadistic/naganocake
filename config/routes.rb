@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :cart_items, only:[:create, :index, :update, :destroy]
   delete "/cart_items" => "cart_items#destroy_all", as: "destroy_all"
-  resources :orders, only: [:new, :create, :index, :show]
-  get "/orders/confirm" => "orders#confirm", as: "confirm"
-  get "/orders/complete" => "orders#conplete", as: "complete"
+  resources :orders, only: [:new, :create, :index, :show] do
+    collection do
+      get "/confirm" => "orders#confirm", as: "confirm"
+      get "/complete" => "orders#complete", as: "complete"
+    end
+  end
   resource :customers, only: [:show, :update]
   get "/customers/password" => "customers#edit", as: "password_edit"
   get "/customers/quit" => "customers#quit", as: "quit"
