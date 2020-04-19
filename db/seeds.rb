@@ -57,3 +57,31 @@ Genre.create(
 		status: true
 		)
 end
+
+15.times do
+
+	random = Random.new
+
+	Order.create!(
+		customer_id: random.rand(1..10),
+		postage: 800,
+		destination: "宛先",
+		postcode: sprintf("%.7d", rand(10000000)),
+		address: "東京都",
+		payment: random.rand(0..1),
+		status: random.rand(0..4)
+		)
+end
+
+5.times do
+
+	random = Random.new
+
+	OrderItem.create!(
+		order_id: random.rand(1..5),
+    	product_id: random.rand(1..5),
+    	produce_status: random.rand(0..3),
+    	price: "500",
+    	piece: random.rand(1..3)
+    )
+end

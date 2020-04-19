@@ -1,0 +1,24 @@
+ja:
+  enum:
+    order: #モデル名
+      status:  #カラム名
+        waiting_for_payment: 入金待ち
+        payment_confirmation: 入金確認
+        in_production: 製作中
+        preparing_for_shipping: 発送準備中
+        shipped: 発送済み
+
+  enum:
+    order:  #モデル名
+      payment: #カラム名
+        bank_transfer: 銀行振込
+        credit_card: クレジッドカード
+
+  enum:
+    order_item:
+      produce_status:
+        cannot_start: 着手不可
+        awaiting_production: 製作待ち
+        in_production: 製作中
+        production_completed: 製作完了
+
