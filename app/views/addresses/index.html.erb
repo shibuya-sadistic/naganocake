@@ -1,26 +1,55 @@
 <div class="container">
 	<div class="row">
 		<h3>配送先登録/一覧</h3>
-		form入れてください
-		<div class="address-lists">
-			<table class="table table-bordered">
-				<tbody>
+	</div>
+
+	<div class="row">
+		<%= form_for @address, method: :post, url: '/addresses' do |f| %>
+			<div class="form-group row">
+    	        <%= f.label :郵便番号（ハイフンなし）, class: "col-sm-2" %>
+        	    <%= f.text_field :postcode, class: "col-sm-3" %>
+            </div>
+
+            <div class="form-group row">
+    	        <%= f.label :住所, class: "col-sm-2" %>
+        	    <%= f.text_field :address, class: "col-sm-6" %>
+            </div>
+
+            <div class="form-group row">
+    	        <%= f.label :宛先, class: "col-sm-2" %>
+        	    <%= f.text_field :destination, class: "col-sm-3" %>
+    			<button class="btn btn-success col-sm-offset-4 col-sm-2" type="submit">登録する</button>
+    		</div>
+         <% end %>
+    </div>
+
+
+	<div class="address-lists row">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="col-sm-1">郵便番号</th>
+					<th class="col-sm-4">住所</th>
+					<th class="col-sm-1">宛名</th>
+					<th class="col-sm-2"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if @addresses.present? %>
+	 			<% @addresses.each do |address| %>
 					<tr>
-						<th>郵便番号</th>
-						<th>住所</th>
-						<th>宛名</th>
-						<th></th>
-					</tr>
-					<tr>
-						<td>1000001</td>
-						<td>東京都千代田区鍛冶町1-1-1</td>
-						<td>藤本浩太</td>
-						<td>
-							編集と削除ボタン classにbtnとbtn-primaryとかつければボタンになる。
+						<td><%= address.postcode %></td>
+						<td><%= address.address %></td>
+						<td><%= address.destination %></td>
+						<td><%= link_to edit_address_path(address) do %>
+								<button class="btn btn-primary　col-sm-2" type="submit">編集する</button><% end %>
+							<%= link_to @address, method: :delete, "data-confirm" => "本当に消しますか?" do %>
+								<button class="btn btn-danger　col-sm-2" type="submit">削除する</button><% end %>
 						</td>
 					</tr>
-				</tbody>
-			</table>
-		</div>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
 </div>
