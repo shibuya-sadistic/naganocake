@@ -7,23 +7,27 @@ class Admins::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_item = OrderItem.find(params[:id])
 		@order_items = @order.order_items
 	end
 
 	def update
+
 		@order = Order.find(params[:id])
-		# @order_items = @order.order_items
+		@order_items = @order.order_items
 		@order.update(order_params)
 
-		if @order.status == 1 #注文ステータスが入金確認
-			@order_items.each do |i|
-			if i.produce_status == 0 #制作ステータスが着臭不可
-			   i.update(produce_status == 1) #制作ステータスを制作待ちへ更新
-			else i.produce_status == 1 #制作ステータスが制作待ち
-			　　redirect_to admins_order_path
-			end
+
+		if @order.previous_changes[:status][0] == "waiting_for_payment" && @order.status == "payment_confirmation" #注文ステータス：更新前が0、今は1
+			@order_items.update_all(produce_status: 1) #制作ステータスを1に変更
+
+			# 	if i.produce_status == 0 #制作ステータスが着手不可
+			# 	   i.update(produce_status == 1) #制作ステータスを制作待ちへ更新
+			# 	else i.produce_status == 1 #制作ステータスが制作待ち
+			# 　　	redirect_to admins_order_path
+			# 	end
       	end
+
+      	redirect_to admins_order_path(@order), turbolinks: false
 
 	end
 
@@ -32,9 +36,5 @@ class Admins::OrdersController < ApplicationController
 		params.require(:order).permit(:customer_id, :postage, :destination, :postcode, :address, :payment, :status)
 	end
 
-	def order_item_params
-		params.require(:order_item).permit(:customer_id, :order_id, :produce_status, :piece, :price)
-	end
-	end
 end
 
