@@ -69,7 +69,7 @@ end
 		postcode: sprintf("%.7d", rand(10000000)),
 		address: "東京都",
 		payment: random.rand(0..1),
-		status: random.rand(0..4)
+		status: 0
 		)
 end
 
@@ -80,7 +80,7 @@ end
 	OrderItem.create!(
 		order_id: random.rand(1..5),
     	product_id: random.rand(1..5),
-    	produce_status: random.rand(0..3),
+    	produce_status: 0,
     	price: "500",
     	piece: random.rand(1..3)
     )
