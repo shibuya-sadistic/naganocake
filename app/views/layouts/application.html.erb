@@ -23,14 +23,14 @@
   <p>ようこそ<%= current_customer.last_name %>さん！</p>
    <li><%= link_to " マイページ", customers_path %>
    </li>
-   <li><%= link_to "商品一覧", products_path　%>
+   <li><%= link_to "商品一覧", products_path %>
    </li>
    <li><%= link_to "カート", cart_items_path %>
    </li>
    <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %>
    </li>
    <% elsif admin_signed_in? %>
-   <li><%= link_to "商品一覧", admins_products_path　%>
+   <li><%= link_to "商品一覧", admins_products_path %>
    </li>
    <li><%= link_to "会員一覧", admins_customers_path %>
    </li>
