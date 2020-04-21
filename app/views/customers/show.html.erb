@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
 		<h2>マイページ</h2>
-		<div class="info">
+		<div class="info" style="margin-bottom: 20px;">
 			<h3 style="display: inline-block;vertical-align: middle;" >登録情報</h3>
-			<%= link_to "編集する", edit_customer_registration_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;" %>
-			<%= link_to "パスワードを変更する", edit_customer_password_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;" %>
+			<%= link_to "編集する", edit_customer_registration_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left:10px;" %>
+			<%= link_to "パスワードを変更する", password_edit_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left:10px;" %>
 		</div>
 		<table class="table table-bordered">
 			<tbody>
@@ -36,11 +36,13 @@
 		</table>
 		<div class="address">
 			<h3 style="display: inline-block;vertical-align: middle;" >配送先</h3>
-			<%= link_to "一覧を見る", addresses_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left: 2.5rem;" %>
+			<%= link_to "一覧を見る", addresses_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left: 4.5rem;" %>
 		</div>
 		<div class="order">
 			<h3 style="display: inline-block;vertical-align: middle;" >注文履歴</h3>
-			<%= link_to "一覧を見る", orders_path(customer_id: @customer.id), class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;" %>
+
+			<%= link_to "一覧を見る", orders_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left: 2rem;" %>
+      
 		</div>
 	</div>
 </div>
