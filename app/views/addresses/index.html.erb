@@ -42,9 +42,9 @@
 						<td><%= address.address %></td>
 						<td><%= address.destination %></td>
 						<td><%= link_to edit_address_path(address) do %>
-								<button class="btn btn-primary　col-sm-2" type="submit">編集する</button><% end %>
-							<%= link_to @address, method: :delete, "data-confirm" => "本当に消しますか?" do %>
-								<button class="btn btn-danger　col-sm-2" type="submit">削除する</button><% end %>
+								<button class="btn btn-primary col-sm-offset-1" type="submit">編集する</button><% end %>
+							<%= link_to address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか?" do %>
+								<button class="btn btn-danger col-sm-offset-1" type="submit">削除する</button><% end %>
 						</td>
 					</tr>
 				<% end %>
