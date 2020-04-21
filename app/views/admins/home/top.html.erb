@@ -2,7 +2,7 @@
 <div class="container">
 <div class="row">
 <h2>管理者画面</h2>
-<p>本日の注文件数は<%=link_to "#{@orders.count}" ,admins_orders_path %>件です</h3>
+<p>本日の注文件数は<%=link_to "#{@orders.count}" ,admins_orders_path(created_at: Date.today) %>件です</h3>
 </div>
 </div>
 
