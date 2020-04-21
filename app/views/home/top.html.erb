@@ -6,7 +6,7 @@
 			  	<ul class="list-group">
 				  	<% @genres.each do |genre| %>
 				      <li class="list-group-item">
-				      	<%= link_to genre.name, products_genre_path(genre.id), class: "" %>
+				      	<%= link_to genre.name, products_path(genre_id: genre.id), class: "" %>
 				      </li>
 				    <% end %>
 			  	</ul>
@@ -26,7 +26,7 @@
 				<% @products.first(4).each do |product| %>
 					<div class="product col-xs-3">
 						<%= link_to product, class: "" do %>
-							<%= image_tag 'no_image.jpg', size: '100x100' %>
+							<%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', size: '150x150' %>
 						<% end %>
 						<h4><%= link_to product.name, product, class: "" %></h4>
 						<p>￥<%= product.price %></p>

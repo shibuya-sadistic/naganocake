@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
   def index
-  	if params[:id]
-  		@products = Product.where(genre_id: params[:id])
+  	if params[:genre_id]
+  		preproducts = Product.where(genre_id: params[:genre_id])
+      @products = preproducts.page(params[:page])
   		@genres = Genre.all
   	else
-	  	@products = Product.all
+	  	@products = Product.page(params[:page])
 	  	@genres = Genre.all
-	end
+    end
   end
 
   def show
