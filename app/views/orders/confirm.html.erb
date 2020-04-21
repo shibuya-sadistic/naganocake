@@ -1,1 +1,56 @@
-<h1>orders confirm</h1>
+<div class="container">
+	<div class="row">
+		<div class="confirmation col-xs-12">
+			<h3>注文情報確認</h3>
+			<div class="row">
+				<div class="col-xs-7">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th>商品名</th>
+								<th>単価（税込）</th>
+								<th>数量</th>
+								<th>小計</th>
+							</tr>
+							<tr>
+								<td>いちごのショートケーキ</td>
+								<td>500</td>
+								<td>5</td>
+								<td>2500</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-4 col-xs-offset-1">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th>送料</th>
+								<td>800</td>
+							</tr>
+							<tr>
+								<th>商品合計</th>
+								<td>3300</td>
+							</tr>
+							<tr>
+								<th>請求金額</th>
+								<td>4100</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="order-info col-xs-12">
+					<h3 style="margin-right: 3.5rem;">支払い方法</h3>
+					<p>クレジットカード</p>
+				</div>
+				<div class="order-info col-xs-12">
+					<h3 style="margin-right: 6rem;">お届け先</h3>
+					<p>東京都千代田区鍛冶町1-1-1<br>藤本浩太</p>
+				</div>
+				<div class="col-xs-12 text-center">
+					<%= link_to "注文を確定する", complete_orders_path, class: "btn btn-success" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
