@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
   get 'products/genres/:id', to: 'products#index', as: :products_genre
-
+  get 'orders/customers/:id', to: 'orders#index'
   # admins routes
   namespace :admins do
   	root to: "home#top", as: "top"
