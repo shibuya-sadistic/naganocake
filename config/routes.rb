@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
         sessions: 'admins/sessions'
   }
-  devise_for :customers
+  devise_for :customers, controllers: { registrations: 'registrations' }
 
   # customers routes
   root to: 'home#top'
@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index, :show]
   get "/orders/confirm" => "orders#confirm", as: "confirm"
   get "/orders/complete" => "orders#conplete", as: "complete"
-  resource :customers, only: [:show, :edit, :update]
+  resource :customers, only: [:show, :update]
+  get "/customers/password" => "customers#edit", as: "password_edit"
   get "/customers/quit" => "customers#quit", as: "quit"
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
+  get 'products/genres/:id', to: 'products#index', as: :products_genre
 
   # admins routes
   namespace :admins do
