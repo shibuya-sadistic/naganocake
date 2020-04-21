@@ -32,7 +32,8 @@
   						<td style="border: none; font-weight: bold;">注文ステータス</td>
   						<td style="border: none;">
                     <%= form_with(model: [:admins, @order], data:{remote: false}) do |f| %>
-  	  	  					<%= f.select :status, Order.statuses_i18n.keys.map {|k| [I18n.t("enum.order.status.#{k}"), k]}, selected: @order.status %>
+  	  	  					<%= f.select :status, Order.statuses_i18n.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}, selected: @order.status %>
+
   	  	  					<button class="btn btn-primary" type="submit">更新</button>
 
   	  	  					<% end %>
@@ -72,7 +73,7 @@
   	  	  				<td><%= subtotal %></td>
                   <%= form_with(model: [:admins, order_item], data:{remote: false}) do |f| %>
   	  	  				<td>
-  	  	  					<%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enum.order_item.produce_status.#{k}"), k]}, selected: order_item.produce_status %>
+  	  	  					<%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, selected: order_item.produce_status %>
 
   	  	  				</td>
   	  	  				<td><button class="btn btn-primary" type="submit">更新</button></td>

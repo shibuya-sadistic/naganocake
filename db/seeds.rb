@@ -63,7 +63,7 @@ end
 	random = Random.new
 
 	Order.create!(
-		customer_id: random.rand(1..10),
+		customer_id: 2,
 		postage: 800,
 		destination: "宛先",
 		postcode: sprintf("%.7d", rand(10000000)),

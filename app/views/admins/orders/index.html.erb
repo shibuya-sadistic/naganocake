@@ -16,19 +16,17 @@
 				  	</thead>
 
 				  	<tbody>
-					  <% if @orders.present? %>
 		 			  <% @orders.each do |order| %>
 						<tr>
 							<td><%= link_to admins_order_path(order) do %>
-								<%= order.created_at %><% end %>
+								<%= order.created_at.strftime("%Y/%m/%d %H:%M:%S ") %><% end %>
 							</td>
 							<td><%= order.customer.last_name %>
 								<%= order.customer.first_name %>
 							</td>
 							<td><%= order.order_items.pluck(:piece).sum %></td>
-							<td><%= order.status_i18n %></td>
+							<td><%= order.status %></td>
 						</tr>
-					  <% end %>
 					  <% end %>
 
 				  	</tbody>
@@ -36,12 +34,7 @@
 			</div>
 		</div>
 
-		<div class="col-sm-offset-5">
+		<div class="col-sm-offset-4 col-sm-4">
 			<%= paginate @orders, class: "paginate" %>
 		</div>
-
-
-
-<%= link_to destroy_admin_session_path, method: :delete do %>logout<% end %>
-
 

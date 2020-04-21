@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 		in_production: 2,          #製作中
 		preparing_for_shipping: 3, #発送準備中
 		shipped: 4                 #発送済み
-	}, _prefix: true
+	}
 
 	
 	enum payment:{

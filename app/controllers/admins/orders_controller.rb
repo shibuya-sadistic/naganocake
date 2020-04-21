@@ -1,6 +1,16 @@
 class Admins::OrdersController < ApplicationController
 	def index
-		@orders = Order.page(params[:page])
+		
+		if params[:created_at]
+			@orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page])
+
+		elsif params[:customer_id]
+			@customer = Customer.find_by(params[:customer_id])
+			@orders = Order.where(customer_id: params[:customer_id]).page(params[:page])
+
+		else
+			@orders = Order.page(params[:page])
+		end
 
 	end
 
@@ -20,11 +30,6 @@ class Admins::OrdersController < ApplicationController
 		if @order.previous_changes[:status][0] == "waiting_for_payment" && @order.status == "payment_confirmation" #注文ステータス：更新前が0、今は1
 			@order_items.update_all(produce_status: 1) #制作ステータスを1に変更
 
-			# 	if i.produce_status == 0 #制作ステータスが着手不可
-			# 	   i.update(produce_status == 1) #制作ステータスを制作待ちへ更新
-			# 	else i.produce_status == 1 #制作ステータスが制作待ち
-			# 　　	redirect_to admins_order_path
-			# 	end
       	end
 
       	redirect_to admins_order_path(@order), turbolinks: false
