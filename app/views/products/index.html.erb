@@ -5,9 +5,11 @@
 			  	<div class="panel-heading">ジャンル検索</div>
 			  	<ul class="list-group">
 				  	<% @genres.each do |genre| %>
+				  	<% if genre.status == true %>
 				      <li class="list-group-item">
 				      	<%= link_to genre.name, products_path(genre_id: genre.id), class: "" %>
 				      </li>
+				    <% end %>
 				    <% end %>
 			  	</ul>
 			</div>
@@ -16,6 +18,7 @@
 			<div class="row recommend-products">
 				<h3 class="col-xs-12">商品一覧（全<%= @products.count %>件）</h3>
 				<% @products.each do |product| %>
+				<% if product.genre.status == true %>
 					<div class="product col-xs-3">
 						<%= link_to product, class: "" do %>
 							<%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', size: '150x150' %>
@@ -23,6 +26,7 @@
 						<h4><%= link_to product.name, product, class: "" %></h4>
 						<p>￥<%= product.price %></p>
 					</div>
+				<% end %>
 				<% end %>
 				<div class="col-xs-12">
 					<div style="text-align: center;">

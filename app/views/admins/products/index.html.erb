@@ -23,6 +23,7 @@
 				 <tbody>
 					  <% if @products.present? %>
 		 			  <% @products.each do |product| %>
+		 			  <% if product.genre.status == true %>
 						<tr>
 							<td class="index"><%= product.id %></td>
 							<td class="product-name">
@@ -36,9 +37,10 @@
 					                販売中
                 				<% else %>
                 					販売停止中
-                				<% end %>		
+                				<% end %>
                 			</td>
 						</tr>
+						<% end %>
 					  <% end %>
 					  <% end %>
 

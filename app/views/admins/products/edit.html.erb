@@ -1,48 +1,51 @@
 <div class="container">
-  <div class="row">
-      <h4>商品一覧画面</h4>
-    </div>
     <div class="row">
-      <div class="col-sm-offset-1 col-sm-10">
-        <table class="table">
-            <thead>
-              <tr>
-            <th class="index">商品ID</th>
-            <th class="index">商品名</th>
-            <th class="index">税抜価格</th>
-            <th class="index">ジャンル</th>
-            <th class="index">ステータス</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <% if @products.present? %>
-            <% @products.each do |product| %>
-            <tr>
-              <td class="index"><%= product.id %></td>
-              <td class="product-name">
-                <%= link_to admins_product_path(product) do %><%= product.name %><% end %>
-              </td>
-
-              <td class="index"><%= product.price %></td>
-              <td class="index"><%= product.genre.name %></td>
-              <td class="index">
-                <% if product.status == true %>
-                          販売中
-                        <% else %>
-                          販売停止中
-                        <% end %>   
-                      </td>
-            </tr>
-            <% end %>
-            <% end %>
-
-            </tbody>
-        </table>
-      </div>
-
-      <div class="col-sm-offset-4">
-        <%= paginate @products, class: "paginate" %>
-      </div>
+        <h4>商品　編集画面</h4>
     </div>
+
+    <%= form_with(model: [:admins, @product]) do |f| %>
+
+    <div class="row">
+
+       <div class="col-sm-offset-1 col-sm-3 product-image">
+          <%= attachment_image_tag @product, :image, :fill, 200, 150, format: 'jpeg', fallback: 'no_image.jpg', size: '200x150' %>
+          <%= f.label :image, '画像選択', class: "btn btn-info image-btn col-sm-5" %>
+          <%= f.attachment_field :image, style: 'display: none;' %>
+       </div>
+
+       <div class="col-sm-5">
+
+          <div class="form-group row">
+            <%= f.label :商品名, class: "col-sm-4" %>
+            <%= f.text_field :name, class: "col-sm-6" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :商品説明, class: "col-sm-4" %>
+            <%= f.text_area :introduction, class: "col-sm-6" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :ジャンル, class: "col-sm-4" %>
+            <%= f.collection_select :genre_id, Genre.where(status: true), :id, :name, class: "col-sm-6"  %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :税抜価格, class: "col-sm-4" %>
+            <%= f.text_field :price, class: "col-sm-6" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :販売ステータス, class: "col-sm-4" %>
+            <%= f.select :status, [["販売中", 1],["販売停止中", 2]], :prompt => "選択してください", class: "col-sm-6" %>
+          </div>
+       </div>
+
+       <div class="row">
+          <div class="col-sm-offset-10 col-sm-2 button">
+            <button class="btn btn-info" type="submit">変更を保存</button>
+          </div>
+       </div>
+    </div>
+    <% end %>
 </div>
