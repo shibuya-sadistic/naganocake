@@ -28,21 +28,21 @@ Admin.create!(
   )
 end
 
-Genre.create(
-	name: "test1",
-	status: true)
+# Genre.create(
+# 	name: "ケーキ",
+# 	status: true)
 
-Genre.create(
-	name: "test2",
-	status: true)
+# Genre.create(
+# 	name: "プリン",
+# 	status: true)
 
-Genre.create(
-	name: "test3",
-	status: true)
+# Genre.create(
+# 	name: "焼き菓子",
+# 	status: true)
 
-Genre.create(
-	name: "test4",
-	status: true)
+# Genre.create(
+# 	name: "キャンディ",
+# 	status: true)
 
 10.times do
 

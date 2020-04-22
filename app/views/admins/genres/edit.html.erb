@@ -1,1 +1,22 @@
-<h1>admins_genres edit</h1>
+<div class="container">
+    <div class="row">
+        <h4>ジャンル編集画面</h4>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-10">
+      <%= form_with(model: [ :admins, @genre ]) do |f| %>
+
+          <div class="form-group">
+            <%= f.label :ジャンル, class: "col-sm-2" %>
+            <%= f.text_field :name, class: "col-sm-4" %>
+
+            <%= f.radio_button :status, :true %>
+            <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
+            <%= f.radio_button :status, false %>
+            <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"}%>
+
+            <button class="btn btn-info" type="submit">変更を保存する</button>
+          </div>
+    <% end %>
+  </div>

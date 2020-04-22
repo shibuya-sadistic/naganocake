@@ -6,9 +6,11 @@
 			  	<div class="panel-heading">ジャンル検索</div>
 			  	<ul class="list-group">
 				  	<% @genres.each do |genre| %>
+				  	<% if genre.status == true %>
 				      <li class="list-group-item">
 				      	<%= link_to genre.name, products_path(genre_id: genre.id), class: "" %>
 				      </li>
+				    <% end %>
 				    <% end %>
 			  	</ul>
 			</div>

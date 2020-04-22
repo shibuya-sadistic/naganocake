@@ -21,11 +21,19 @@ class Admins::ProductsController < ApplicationController
   end
 
   def index
+      # genre = Genre.where(status: true)
+      # @products = Product.where(genre_id: params[:genre_id])
+     
+
       @products = Product.page(params[:page])
+
+
+
   end
 
   def edit
       @product = Product.find(params[:id])
+
   end
 
   def update
