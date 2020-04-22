@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product-index {
+	display: inline;
+}
+
+
 .image-btn {
 	margin-top: 10px;
 	margin-left: 25%;
@@ -28,7 +33,4 @@ th {
 	border-style: none;
 }
 
-.paginate {
-	text-align: center;
-}
 

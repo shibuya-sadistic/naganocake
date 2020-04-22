@@ -28,12 +28,12 @@
 
           <div class="form-group row">
             <%= f.label :郵便番号（ハイフンなし）, class: "col-sm-4" %>
-            <%= f.text_field :postcode, class: "col-sm-6" %>
+            <%= f.text_field :postcode, class: "col-sm-6", name: "zip11", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :住所, class: "col-sm-4" %>
-            <%= f.text_field :address, class: "col-sm-6" %>
+            <%= f.text_field :address, class: "col-sm-6", name: "addr11" %>
           </div>
 
           <div class="form-group row">
