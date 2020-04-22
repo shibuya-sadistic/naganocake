@@ -15,19 +15,19 @@ destroy_all_path, method: :delete, class: 'btn btn-denger' %></ul>
 		</tr>
 	</thead>
 	<tbody>
+		<% totalprice = 0 %>
 		<% @cart_items.each do |cart_item| %>
-		<% form_for(cart_item, url: cart_item_path(product))do |f| %>
+		<% totalprice += (((cart_item.product.price*1.1).round)*cart_item.piece ) %>
 		<tr>
 			<td>
-				<%= attachment_image_tag cart_item.product, %>
-				<%=@product.name  %></td>
-			<td><%=@product.price %></td>
+				<%= cart_item.product.name  %></td>
+			<td><%= (cart_item.product.price*1.1).round %></td>
 			<td><%= form_for cart_item, url:cart_item_path(cart_item)do |f|  %>
-			<%= f.number_feld :count,min:0,max:100 %>
+			<%= f.number_field :piece,min:1,max:100 %>
 			<%= f.submit '変更',class: 'btn btn-primary' %>
 			<% end %>
 			</td>
-			<td>
+			<td><%= ((cart_item.product.price*1.1).round)*cart_item.piece %>
 			</td>
 			<td><%= link_to "削除する",cart_item_path(cart_item.id),method: :delete, class: "btn btn-danger" %>
 			</td>
@@ -40,5 +40,12 @@ destroy_all_path, method: :delete, class: 'btn btn-denger' %></ul>
 	<%= link_to "買い物を続ける",root_path,class: "btn btn-primary" %>
 	</span>
 </div>
-<
-	<th></th>
+<div class = "col-xs-4">
+	<table class = "table table-bordered">
+	<tr>
+		<td>合計金額 <%= totalprice %>円 </td>
+	</tr>
+	</table>
+	<span><%=link_to "情報入力に進む",new_order_path, class: "col-xs-12 btn btn-succes"%>
+	</span>
+</div>
