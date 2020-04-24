@@ -1,6 +1,7 @@
 class Admins::OrdersController < ApplicationController
+	before_action :authenticate_admin!
+	
 	def index
-		
 		if params[:created_at]
 			@orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page]).order('created_at desc')
 
@@ -11,7 +12,6 @@ class Admins::OrdersController < ApplicationController
 		else
 			@orders = Order.page(params[:page]).order('created_at desc')
 		end
-
 	end
 
 
@@ -25,7 +25,6 @@ class Admins::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order_items = @order.order_items
 		@order.update(order_params)
-
 
 		if @order.previous_changes[:status][0] == "waiting_for_payment" && @order.status == "payment_confirmation" #注文ステータス：更新前が0、今は1
 			@order_items.update_all(produce_status: 1) #制作ステータスを1に変更

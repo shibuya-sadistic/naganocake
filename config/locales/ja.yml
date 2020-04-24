@@ -18,7 +18,7 @@ ja:
         production_completed: 製作完了
   activerecord:
     models:
-      customer:　
+      customer:
     attributes:
       customer:
         last_name: 名前（姓）

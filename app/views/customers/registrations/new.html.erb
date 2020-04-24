@@ -11,19 +11,19 @@
 
           <div class="form-group row">
             <%= f.label :名前, class: "col-sm-4" %>
-            <%= f.text_field :last_name, class: "col-sm-3" %>
-            <%= f.text_field :first_name, class: "col-sm-offset-1 col-sm-3" %>
+            <%= f.text_field :last_name, class: "form-control",style: "display: inline-block; width:auto;" %>
+            <%= f.text_field :first_name, class: "form-control",style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :フリガナ, class: "col-sm-4" %>
-            <%= f.text_field :last_name_kana, class: "col-sm-3" %>
-            <%= f.text_field :first_name_kana, class: "col-sm-offset-1 col-sm-3" %>
+            <%= f.text_field :last_name_kana, class: "form-control",style: "display: inline-block; width:auto;" %>
+            <%= f.text_field :first_name_kana, class: "form-control",style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :メールアドレス, class: "col-sm-4" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-6" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",style: "display: inline-block; width:50%;" %>
           </div>
 
           <form>
@@ -33,28 +33,28 @@
 
             <div class="form-group row">
             <%= f.label :郵便番号（ハイフンなし）, class: "col-sm-4" %>
-            <%= f.text_field :postcode, class: "p-postal-code col-sm-6"%>
+            <%= f.text_field :postcode, class: "form-control p-postal-code", style: "display: inline-block; width:auto;" %>
             </div>
 
             <div class="form-group row">
             <%= f.label :住所, class: "col-sm-4" %>
-            <%= f.text_field :address, class: "col-sm-6 p-region p-locality p-street-address p-extended-address" %>
+            <%= f.text_field :address, class: "form-control p-region p-locality p-street-address p-extended-address", style: "display: inline-block; width:50%;" %>
             </div>
             </div>
       
           <div class="form-group row">
             <%= f.label :電話番号（ハイフンなし）, class: "col-sm-4" %>
-            <%= f.text_field :tel, class: "col-sm-6" %>
+            <%= f.text_field :tel, class: "form-control", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :パスワード（６文字以上）, class: "col-sm-4" %>
-            <%= f.password_field :password, autocomplete: "new-password", class: "col-sm-6" %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :パスワード（確認用）, class: "col-sm-4" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-6" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="actions">

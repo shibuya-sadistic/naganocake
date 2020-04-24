@@ -3,7 +3,10 @@
     <h3 class="admin-product">商品　新規登録画面</h3>
   </div>
 
-  <%= form_for @product, method: :post, url: '/admins/products' do |f| %>
+  <%= render "layouts/error_messages" %>
+
+  <%#= form_with (model:@product, method: :post, url: '/admins/products' do |f| %>
+  <%= form_with(model: [:admins, @product], local: true) do |f| %>
 
   <div class="row">
 
@@ -27,8 +30,6 @@
             <%= f.label :ジャンル, class: "col-md-4" %>
             <%= f.collection_select :genre_id, Genre.where(status: true), :id, :name, :prompt => "選択してください", class: "col-md-6"  %>
           </div>
-
-            <%= f.collection_select :postcode, Address.all, :postcode, :postcode %>
 
 
           <div class="form-group row">

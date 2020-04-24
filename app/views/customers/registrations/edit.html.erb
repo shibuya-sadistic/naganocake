@@ -41,7 +41,16 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <%= form.submit "更新", class: "btn btn-primary" %>
+        <div class="text-center" >
+        <%= form.submit "編集内容を保存する", class: "btn btn-primary" %>
+        </div>
+
+        <div class="text-right">
+        <%= link_to quit_path do %>
+          <button class="btn btn-danger">退会する</button>
+        <% end %>
+      </div>
+
       </form>
 
     <% end %>
