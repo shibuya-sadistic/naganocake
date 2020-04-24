@@ -49,8 +49,8 @@ end
 	random = Random.new
 
 	Product.create!(
-		name: "test",
-		introduction: "test",
+		name: "ケーキ",
+		introduction: "おいしい",
 		genre_id: random.rand(1..4),
 		price: "500",
 		image_id: "1",
@@ -73,7 +73,7 @@ end
 		)
 end
 
-5.times do
+10.times do
 
 	random = Random.new
 

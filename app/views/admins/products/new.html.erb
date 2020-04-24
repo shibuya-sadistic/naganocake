@@ -1,58 +1,51 @@
 <div class="container">
   <div class="row">
-    <h5>商品　新規登録画面</h5>
+    <h3 class="admin-product">商品　新規登録画面</h3>
   </div>
 
   <%= form_for @product, method: :post, url: '/admins/products' do |f| %>
 
   <div class="row">
 
-      <div class="col-sm-offset-1 col-sm-3 product-image">
+      <div class="col-xs-12 col-md-offset-1 col-md-3">
         <%= image_tag 'no_image.jpg', size: '200x150' %>
         <%=f.label :image, '画像選択', class: "btn btn-info image-btn col-sm-5" %>
         <%= f.attachment_field :image, style: 'display: none;' %>
       </div>
-
-      <div class="col-sm-5">
-
+      <div class="col-md-5">
           <div class="form-group row">
-            <%= f.label :商品名, class: "col-sm-4" %>
-            <%= f.text_field :name, class: "col-sm-6" %>
+            <%= f.label :商品名, class: "col-md-4" %>
+            <%= f.text_field :name, class: "col-md-6" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :商品説明, class: "col-sm-4" %>
-            <%= f.text_area :introduction, class: "col-sm-6" %>
+            <%= f.label :商品説明, class: "col-md-4" %>
+            <%= f.text_area :introduction, class: "col-md-6" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :ジャンル, class: "col-sm-4" %>
-            <%= f.collection_select :genre_id, Genre.where(status: true), :id, :name, :prompt => "選択してください", class: "col-sm-6"  %>
-
-
+            <%= f.label :ジャンル, class: "col-md-4" %>
+            <%= f.collection_select :genre_id, Genre.where(status: true), :id, :name, :prompt => "選択してください", class: "col-md-6"  %>
           </div>
 
+            <%= f.collection_select :postcode, Address.all, :postcode, :postcode %>
+
+
           <div class="form-group row">
-            <%= f.label :税抜価格, class: "col-sm-4" %>
-            <%= f.text_field :price, class: "col-sm-6" %>
+            <%= f.label :税抜価格, class: "col-md-4" %>
+            <%= f.text_field :price, class: "col-md-6" %>
           </div>
-
           <div class="form-group row">
-            <%= f.label :販売ステータス, class: "col-sm-4" %>
-            <%= f.select :status, [["販売中", true],["販売停止中", false]], :prompt => "選択してください", class: "col-sm-6" %>
-
+            <%= f.label :販売ステータス, class: "col-md-4" %>
+            <%= f.select :status, [["販売中", true],["販売停止中", false]], :prompt => "選択してください", class: "col-md-6" %>
         </div>
       </div>
-
-
         <div class="row">
-          <div class="col-sm-offset-10 col-sm-2">
+          <div class="col-md-offset-10 col-md-2">
             <button class="btn btn-info" type="submit">新規登録</button>
           </div>
         </div>
+    </div>
 
-    <% end %>
-  </div>
+  <% end %>
 </div>
-
-

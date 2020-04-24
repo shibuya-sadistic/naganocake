@@ -23,11 +23,8 @@ class Admins::ProductsController < ApplicationController
   def index
       # genre = Genre.where(status: true)
       # @products = Product.where(genre_id: params[:genre_id])
-     
 
       @products = Product.page(params[:page])
-
-
 
   end
 

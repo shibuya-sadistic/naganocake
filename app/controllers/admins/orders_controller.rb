@@ -2,14 +2,14 @@ class Admins::OrdersController < ApplicationController
 	def index
 		
 		if params[:created_at]
-			@orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page])
+			@orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page]).order('created_at desc')
 
 		elsif params[:customer_id]
 			@customer = Customer.find_by(params[:customer_id])
 			@orders = Order.where(customer_id: params[:customer_id]).page(params[:page])
 
 		else
-			@orders = Order.page(params[:page])
+			@orders = Order.page(params[:page]).order('created_at desc')
 		end
 
 	end
