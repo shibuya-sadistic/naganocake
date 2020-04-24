@@ -16,6 +16,7 @@
 		</div>
 		<div class="col-xs-9">
 			<div class="row recommend-products">
+				
 				<h3 class="col-xs-12">商品一覧（全<%= @products.count %>件）</h3>
 				<% @products.each do |product| %>
 				<% if product.genre.status == true %>
