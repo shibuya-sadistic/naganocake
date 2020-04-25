@@ -27,7 +27,7 @@ class Admins::OrdersController < ApplicationController
 		@order.update(order_params)
 
 		if @order.previous_changes[:status][0] == "waiting_for_payment" && @order.status == "payment_confirmation" #注文ステータス：更新前が0、今は1
-			@order_items.update_all(produce_status: 1) #制作ステータスを1に変更
+			@order_items.update_all(produce_status: 1) #制作ステータスを1:製作待ちに変更（全てのorder_item）
 
       	end
 
