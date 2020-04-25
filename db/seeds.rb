@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
-   email: 'shibuya@dwc.com',
-   password: '123456'
-)
+# Admin.create!(
+#    email: 'shibuya@dwc.com',
+#    password: '123456'
+# )
 
 50.times do
   # gimei = Gimei.new
@@ -16,11 +16,11 @@ Admin.create!(
   Customer.create!(
     last_name: Gimei.last.kanji,
     first_name: Gimei.first.kanji,
-    last_name_kana: Gimei.last.hiragana,
-    first_name_kana: Gimei.first.hiragana,
+    last_name_kana: Gimei.last.katakana,
+    first_name_kana: Gimei.first.katakana,
     postcode: sprintf("%.7d", rand(10000000)),
     address: Gimei.address.kanji,
-    tel: "123456789",
+    tel: "1234567890",
     status: true,
     email: Faker::Internet.email,
     password: "123456",
