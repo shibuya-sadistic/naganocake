@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   		@preproducts = Product.where(genre_id: params[:genre_id])
       @products = @preproducts.page(params[:page]).per(12)
   		@genres = Genre.where(status: true)
+      @genre = Genre.find(params[:genre_id])
   	else
       @products = []
       preproducts = Product.all
