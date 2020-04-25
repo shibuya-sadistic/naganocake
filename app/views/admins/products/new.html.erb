@@ -1,1 +1,57 @@
-<h1>admins::products new</h1>
+<div class="container">
+	<div class="row">
+		<h5>商品　新規登録画面</h5>
+ 	</div>
+
+ 	<%= form_for @product, method: :post, url: '/admins/products' do |f| %>
+
+ 	<div class="row">
+
+		  <div class="col-sm-offset-1 col-sm-3 product-image">
+        <%= image_tag 'no_image.jpg', size: '200x150' %>
+        <%=f.label :image, '画像選択', class: "btn btn-info image-btn" %>
+        <%= f.attachment_field :image, style: 'display: none;' %>
+      </div>
+
+	  	<div class="col-sm-5">
+
+          <div class="form-group row">
+            <%= f.label :商品名, class: "col-sm-4" %>
+            <%= f.text_field :name, class: "col-sm-6" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :商品説明, class: "col-sm-4" %>
+            <%= f.text_area :introduction, class: "col-sm-6" %>
+          </div>
+
+	  		  <div class="form-group row">
+  			  	<%= f.label :ジャンル, class: "col-sm-4" %>
+            <%= f.select :genre_id,[["ケーキ", 1.to_i],["プリン", 2.to_i],["焼き菓子", 3.to_i],["クッキー",4.to_i]], :prompt => "選択してください", class: "col-sm-6" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :税抜価格, class: "col-sm-4" %>
+            <%= f.text_field :price, class: "col-sm-6" %>
+          </div>
+
+  	  	  <div class="form-group row">
+            <%= f.label :販売ステータス, class: "col-sm-4" %>
+            <%= f.select :status, [["販売中", 1],["販売停止中", 2]], :prompt => "選択してください", class: "col-sm-6" %>
+
+		  	</div>
+	  	</div>
+
+
+      	<div class="row">
+    			<div class="col-sm-offset-10 col-sm-2">
+    				<button class="btn btn-info" type="submit">新規登録</button>
+    		  </div>
+  	  	</div>
+
+  	<% end %>
+	</div>
+</div>
+
+
+
