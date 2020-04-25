@@ -1,6 +1,6 @@
 class CartItemsController < ApplicationController
+end
 def create
-	
 end
 def index
 end
@@ -9,6 +9,4 @@ end
 def destroy
 end
 def destroy_all
-end
-
 end
