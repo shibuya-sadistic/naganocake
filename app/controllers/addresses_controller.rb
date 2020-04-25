@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+	before_action :authenticate_customer!
 
 def index
 	@addresses = Address.all
@@ -42,6 +43,6 @@ end
 private
 	def address_params
 		params.require(:address).permit(:customer_id, :address, :postcode, :destination)
- 
 	end
+
 end

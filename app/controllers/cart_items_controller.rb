@@ -5,7 +5,7 @@ def create
 	@cart_item = CartItem.new(cart_item_params)
 	@cart_item.customer_id = current_customer.id
 	if @cart_item.save
-		redirect_to root_path, notice:"カートに商品が追加されました。"
+		redirect_to cart_items_path, notice:"カートに商品が追加されました。"
     else render 'index'
     end
 end

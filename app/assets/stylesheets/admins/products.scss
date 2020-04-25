@@ -2,35 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.product-index {
-	display: inline;
+.admin-product {
+	margin-bottom: 50px;
 }
-
 
 .image-btn {
 	margin-top: 10px;
 	margin-left: 25%;
 }
 
-
 th {
 	background-color: #ededed;
-
 }
-
-.index {
-	border-top: solid 1px black;
-	border-bottom: solid 1px black;
-}
-
-.product-name {
-	text-decoration: underline;
-	border-top: solid 1px black;
-	border-bottom: solid 1px black;
-}
-
-.table>tbody>tr>td {
-	border-style: none;
-}
-
-

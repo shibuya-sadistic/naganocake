@@ -1,4 +1,5 @@
 class Admins::ProductsController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
       @product = Product.new
@@ -23,11 +24,8 @@ class Admins::ProductsController < ApplicationController
   def index
       # genre = Genre.where(status: true)
       # @products = Product.where(genre_id: params[:genre_id])
-     
 
       @products = Product.page(params[:page])
-
-
 
   end
 

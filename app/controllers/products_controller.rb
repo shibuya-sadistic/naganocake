@@ -3,10 +3,19 @@ class ProductsController < ApplicationController
   	if params[:genre_id]
   		preproducts = Product.where(genre_id: params[:genre_id])
       @products = preproducts.page(params[:page]).per(12)
-  		@genres = Genre.all
+  		@genres = Genre.where(status: true)
   	else
-	  	@products = Product.page(params[:page]).per(12)
-	  	@genres = Genre.all
+      @products = []
+      preproducts = Product.all
+      preproducts.each do |product|
+        if product.genre.status == true
+          @products.push [product]
+        end
+      end
+      @preproducts = Product.where(id: @products.map{ |product| product[0][:id]})
+
+	  	@products = Kaminari.paginate_array(@preproducts).page(params[:page]).per(12)
+	  	@genres = Genre.where(status: true)
     end
   end
 
