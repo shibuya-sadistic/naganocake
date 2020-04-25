@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete "/cart_items" => "cart_items#destroy_all", as: "destroy_all"
   resources :orders, only: [:new, :create, :index, :show] do
     collection do
-      get "/confirm" => "orders#confirm", as: "confirm"
+      post "/confirm" => "orders#confirm", as: "confirm"
       get "/complete" => "orders#complete", as: "complete"
     end
   end
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get "/customers/quit" => "customers#quit", as: "quit"
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
-  
+
   # admins routes
   namespace :admins do
   	root to: "home#top", as: "top"

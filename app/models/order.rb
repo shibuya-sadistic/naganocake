@@ -2,7 +2,6 @@ class Order < ApplicationRecord
 	belongs_to :customer
 	has_many :order_items
 
-	
 
 	enum status:{
 		waiting_for_payment: 0,    #入金待ち
@@ -12,10 +11,11 @@ class Order < ApplicationRecord
 		shipped: 4                 #発送済み
 	}
 
-	
+
 	enum payment:{
 		bank_transfer: 0, #銀行振込
 		credit_card: 1 #クレジットカード
 	}
+
 
 end

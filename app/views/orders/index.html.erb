@@ -2,7 +2,7 @@
 	<div class="row">
 		<h3>注文履歴一覧</h3>
 		<table class="table table-bordered">
-			<tbody>
+			<thead>
 				<tr>
 					<th>注文日</th>
 					<th>配送先</th>
@@ -11,21 +11,27 @@
 					<th>ステータス</th>
 					<th>注文詳細</th>
 				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
 				<tr>
-					<td>2020/04/19</td>
+					<td><%= order.created_at.strftime("%Y/%m/%d %H:%M:%S ") %></td>
 					<td>
-						<p>1000001</p>
-						<p>東京都千代田区鍛冶町1-1-1</p>
-						<p>藤本浩太</p>
-					</td>
-					<td>
-						<p>いちごのショートケーキ</p>
-						<p>ガトーショコラ</p>
-					</td>
-					<td>2500円</td>
-					<td>発送済み</td>
-					<td>link</td>
+					<%= order.postcode %><br>
+					<%= order.address %><br>
+					<%= order.destination %><br>
+				    </td>
+				    <td><% totalprice = 0 %>
+				    	<% order.order_items.each do |order_item| %>
+				    	<% totalprice +=(order_item.product.price * 1.1) * order_item.piece %>
+				    <%= order_item.product.name %>
+				    <% end %>
+				    </td>
+				    <td><%= totalprice.round %></td>
+					<td><%= t("enums.order.status.#{order.status}") %></td>
+					<td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
