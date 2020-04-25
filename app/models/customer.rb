@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :cart_items
   has_many :addresses
-  has_many :orderes
+  has_many :orders
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
