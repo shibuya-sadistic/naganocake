@@ -1,1 +1,36 @@
-<h1>products show</h1>
+<% price = @product.price * 1.1 %>
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="panel panel-default" style="margin-top: 20px;">
+			  	<div class="panel-heading">ジャンル検索</div>
+			  	<ul class="list-group">
+				  	<% @genres.each do |genre| %>
+				      <li class="list-group-item">
+				      	<%= link_to genre.name, products_path(genre_id: genre.id), class: "" %>
+				      </li>
+				    <% end %>
+			  	</ul>
+			</div>
+		</div>
+		<div class="col-xs-9">
+			<div class="row recommend-products">
+				<div class="col-xs-6">
+					<%= attachment_image_tag @product, :image, :fill, 400, 300, format: 'jpeg', fallback: 'no_image.jpg', size: '400x300', class: "" %>
+				</div>
+				<div class="col-xs-6">
+					<h3><%= @product.name %></h3>
+					<p><%= @product.introduction %></p>
+					<p><span style="font-weight: bold; font-size: 2rem;">￥<%= price.round %></span><span style="margin-left: 10px;">(税込)</span></p>
+					<%= form_with model: @cart_item, url: cart_items_path(@product), class: "form-inline" do |form| %>
+					<div class="form-group">
+					  <%= form.select :piece, [ ["1", 1],["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9] ], {:prompt => "選択してください"}, {class: "form-control"} %>
+					</div>
+					<%= form.hidden_field :product_id, value: @product.id %>
+					<%= form.submit "カートに入れる", class: "btn btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
