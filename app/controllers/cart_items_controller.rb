@@ -1,14 +1,19 @@
 class CartItemsController < ApplicationController
-before_action :authenticate_customer!
+before_action :authenticate_customer!, only: [:index, :update, :destroy, :destroy_all]
 
 	def create
-		@cart_item = CartItem.new(cart_item_params)
-		@cart_item.customer_id = current_customer.id
-		if @cart_item.save
-			redirect_to cart_items_path, notice:"カートに商品が追加されました。"
-	    else
-	    	render 'index'
-	    end
+		unless customer_signed_in?
+			flash[:alert] = "ログイン済ユーザーのみカートを利用できます"
+			redirect_back(fallback_location: root_path)
+		else
+			@cart_item = CartItem.new(cart_item_params)
+			@cart_item.customer_id = current_customer.id
+			if @cart_item.save
+				redirect_to cart_items_path, notice:"カートに商品が追加されました。"
+		    else
+		    	render 'index'
+		    end
+		end
 	end
 
 	def index
