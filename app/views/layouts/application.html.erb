@@ -57,10 +57,10 @@
               <li><%= link_to "ジャンル管理",admins_genres_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             </ul>
-            <%= form_tag('/oranges', method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
+            <%= form_tag(admins_products_path, method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
               <div class="form-group">
-                <%= text_field_tag :search, "検索キーワード", {class: "form-control"} %>
-                <%= submit_tag '検索', class: "btn btn-primary" %>
+                <%= text_field_tag :search,"", class: "form-control", placeholder: "検索キーワード" %>
+                <%= submit_tag '検索', class: "btn btn-primary", :name => nil %>
               </div>
             <% end %>
           </div>
