@@ -9,3 +9,5 @@ class OrderItem < ApplicationRecord
 		production_completed: 3   #製作完了
 	}
 end
+
+

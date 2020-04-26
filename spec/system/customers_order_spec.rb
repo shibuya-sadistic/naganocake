@@ -148,7 +148,7 @@ describe '登録～注文' do
         expect(order.reload.status).to eq 'shipped' #4
 
         #click_link "ログアウト"
-      　 #expect(current_path).to eq(new_admin_session_path)
+        #expect(current_path).to eq(new_admin_session_path)
 
       end
     end

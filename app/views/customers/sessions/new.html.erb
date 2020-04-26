@@ -9,12 +9,12 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           
           <div class="form-group row">
-            <%= f.label :メールアドレス, class: "col-sm-offset-2 col-sm-3" %>
+            <%= f.label :メールアドレス, class: "col-md-offset-2 col-sm-3" %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",style: "display: inline-block; width:50%" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :パスワード, class: "col-sm-offset-2 col-sm-3" %>
+            <%= f.label :パスワード, class: "col-md-offset-2 col-md-3" %>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control",style: "display: inline-block; width:50%;" %>
           </div>
 
@@ -23,7 +23,7 @@
           </div>
 
           <div class="actions">
-            <button class="log-in btn btn-info col-sm-offset-5 col-sm-3" type="submit">ログイン</button>
+            <button class="log-in btn btn-info col-md-offset-5 col-md-3" type="submit">ログイン</button>
           </div>
         </div>
 
@@ -33,12 +33,12 @@
     </div>
 
 
-    <div class="col-sm-offset-2 col-sm-7">
+    <div class="col-md-offset-2 col-sm-7">
       <div class="customer-signup">
         <p class="customer-signup-text">登録がお済みでない方</p>
       </div>
 
-      <div class="col-sm-offset-2">
+      <div class="col-md-offset-2">
         <p><%=link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。</p>
       </div>
 

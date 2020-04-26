@@ -7,17 +7,17 @@
 		<%= form_for @address do |f| %>
 			<div class="form-group row">
     	        <%= f.label :郵便番号（ハイフンなし）, class: "col-md-2" %>
-        	    <%= f.text_field :postcode, class: "form-control",style: "display: inline-block;" %>
+        	    <%= f.text_field :postcode, class: "form-control",style: "display: inline-block; width: auto;" %>
             </div>
 
             <div class="form-group row">
     	        <%= f.label :住所, class: "col-md-2" %>
-        	    <%= f.text_field :address, class: "form-control col-md-6" %>
+        	    <%= f.text_field :address, class: "form-control col-md-6",style: "display: inline-block; width: 50%;" %>
             </div>
 
             <div class="form-group row">
     	        <%= f.label :宛先, class: "col-md-2" %>
-        	    <%= f.text_field :destination, class: "form-control col-md-3" %>
+        	    <%= f.text_field :destination, class: "form-control col-md-3",style: "display: inline-block; width: auto;" %>
     			<button class="btn btn-primary col-md-offset-4 col-md-2" type="submit">編集する</button>
     		</div>
          <% end %>
