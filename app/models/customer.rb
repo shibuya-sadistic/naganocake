@@ -21,11 +21,17 @@ class Customer < ApplicationRecord
     result
   end
 
-  with_options presence: true do
-    validates :last_name
-    validates :first_name
-  end
 
+  validates :last_name, presence: true,
+                             format: {
+                             with: /\A[ぁ-んァ-ン一-龥]/,
+                             message: "は漢字・ひらがな・カタカナのみで入力してください"
+                             }
+  validates :first_name, presence: true,
+                             format: {
+                             with: /\A[ぁ-んァ-ン一-龥]/,
+                             message: "は漢字・ひらがな・カタカナのみで入力してください"
+                             }
   validates :last_name_kana, presence: true,
                              format: {
                              with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
@@ -40,15 +46,10 @@ class Customer < ApplicationRecord
                         format: {
                           with: /\A[0-9]{7}\z/,
                           message: "は半角数字のみで入力してください"} # 郵便番号（ハイフンなし7桁）
-
-
   validates :address, presence: true
   validates :tel, presence: true,
                         format: {
                           with: /\A\d{10,11}\z/,
                           message: "は半角数字のみで入力してください"} # 携帯番号(ハイフンなし10桁or11桁)
-
-
-
 
 end
