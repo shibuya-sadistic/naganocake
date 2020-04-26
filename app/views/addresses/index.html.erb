@@ -35,7 +35,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% if @addresses.present? %>
+
 	 			<% @addresses.each do |address| %>
 					<tr>
 						<td><%= address.postcode %></td>
@@ -47,7 +47,7 @@
 								<button class="btn btn-danger col-sm-offset-1" type="submit">削除する</button><% end %>
 						</td>
 					</tr>
-				<% end %>
+			
 				<% end %>
 			</tbody>
 		</table>

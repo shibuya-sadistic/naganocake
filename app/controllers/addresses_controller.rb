@@ -2,7 +2,8 @@ class AddressesController < ApplicationController
 	before_action :authenticate_customer!
 
 def index
-	@addresses = Address.all
+	@customer = Customer.find(current_customer.id)
+	@addresses = @customer.addresses
 	@address = Address.new
 end
 
