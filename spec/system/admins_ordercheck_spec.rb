@@ -7,7 +7,7 @@ describe '管理者のログイン' do
     end
 	context 'ログイン画面に遷移' do
 		let(:test_admin) { admin }
-		it 'ログインに成功する'　do
+		it 'ログインに成功する' do
 		  fill_in 'admin[email]', with: test_admin.email
           fill_in 'admin[password]', with: test_admin.password
           click_button 'ログイン'
@@ -56,7 +56,7 @@ describe '注文詳細画面のテスト' do
 
 		it '注文ステータスが入金確認、製作ステータスが製作待ちに更新される' do
 		end
-		it '注文ステータスが製作中に更新される'do　
+		it '注文ステータスが製作中に更新される' do
 		#製作ステータスが製作中に更新される
 		end
 		it '注文ステータスが発送準備中に更新される' do
