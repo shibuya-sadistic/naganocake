@@ -38,10 +38,10 @@
               <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
             </ul>
             <p class="navbar-text">ようこそ<%= current_customer.last_name %>さん。</p>
-            <%= form_tag('/oranges', method: :post,class: "navbar-form navbar-left",id:"example_id") do %>
+            <%= form_tag(products_path, method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
               <div class="form-group">
-                <%= text_field_tag :search, "検索キーワード", {class: "form-control"} %>
-                <%= submit_tag '検索', class: "btn btn-primary" %>
+                <%= text_field_tag :search,"", class: "form-control", placeholder: "検索キーワード" %>
+                <%= submit_tag '検索', class: "btn btn-primary", :name => nil %>
               </div>
             <% end %>
           </div>
@@ -57,7 +57,7 @@
               <li><%= link_to "ジャンル管理",admins_genres_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             </ul>
-            <%= form_tag('/oranges', method: :post,class: "navbar-form navbar-left",id:"example_id") do %>
+            <%= form_tag('/oranges', method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
               <div class="form-group">
                 <%= text_field_tag :search, "検索キーワード", {class: "form-control"} %>
                 <%= submit_tag '検索', class: "btn btn-primary" %>
@@ -75,10 +75,10 @@
               <li><%= link_to "新規登録", new_customer_registration_path %></li>
               <li><%= link_to "ログイン", customer_session_path %></li>
             </ul>
-            <%= form_tag('/oranges', method: :post,class: "navbar-form navbar-left",id:"example_id") do %>
+            <%= form_tag(products_path, method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
               <div class="form-group">
-                <%= text_field_tag :search, "検索キーワード", {class: "form-control"} %>
-                <%= submit_tag '検索', class: "btn btn-primary" %>
+                <%= text_field_tag :search,"", class: "form-control", placeholder: "検索キーワード" %>
+                <%= submit_tag '検索', class: "btn btn-primary", :name => nil %>
               </div>
             <% end %>
           </div>
@@ -87,6 +87,11 @@
         </div>
       </nav>
     </header>
+
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

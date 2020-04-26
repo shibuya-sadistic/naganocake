@@ -6,8 +6,12 @@ class ProductsController < ApplicationController
   		@genres = Genre.where(status: true)
       @genre = Genre.find(params[:genre_id])
   	else
+      if params[:search]
+        preproducts = Product.where(['name LIKE ?', "%#{params[:search]}%"])
+      else
+        preproducts = Product.all
+      end
       @products = []
-      preproducts = Product.all
       preproducts.each do |product|
         if product.genre.status == true
           @products.push [product]
