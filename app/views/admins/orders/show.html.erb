@@ -4,34 +4,34 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-4">
-        <table class="table">
+    <div class="col-xs-12 col-md-7">
+        <table class="table table-bordered">
           <tbody>
             <tr>
-              <th>購入者</td>
+              <th class="active">購入者</td>
               <td><%= link_to admins_customer_path(@order.customer_id) do %>
                 <%= @order.customer.last_name %>
               <%= @order.customer.first_name %></td>
               <% end %>
             </tr>
             <tr>
-              <th>配送先</td>
-              <td>〒<%= @order.postcode%></td>
+              <th class="active", style="border: none;">配送先</td>
+              <td style="border: none;">〒<%= @order.postcode%></td>
             </tr>
             <tr>
-              <th style="border: none;"></td>
+              <th class="active", style="border: none;"></td>
               <td style="border: none;"><%= @order.address %></td>
             <tr>
-              <th style="border: none;"></td>
+              <th class="active", style="border: none;"></td>
               <td style="border: none;"><%= @order.destination %></td>
             </tr>
             <tr>
-              <th>支払方法</td>
+              <th class="active">支払方法</td>
               <td>
                 <%= @order.payment_i18n %></td>
             </tr>
             <tr>
-              <th>注文ステータス</td>
+              <th class="active">注文ステータス</td>
               <td>
                   <%= form_with(model: [:admins, @order], data:{remote: false}) do |f| %>
 
@@ -46,11 +46,11 @@
     </div>
 
       <div class="row">
-          <div class="col-sm-7">
+          <div class="col-md-7">
 
-            <table class="table">
+            <table class="table table-bordered">
               <thead>
-                <tr>
+                <tr class="active">
                   <th>商品名</th>
                   <th>単価（税込）</th>
                   <th>数量</th>
@@ -85,23 +85,23 @@
             </table>
           </div>
 
-          <div class="total-price col-sm-offset-1 col-sm-4">
+          <div class="total-price col-md-offset-1 col-md-4">
             <table class="table">
 
               <tr style="border: none;">
-                <td style="border: none; font-weight: bold;">商品合計</td>
+                <th style="border: none;">商品合計</td>
                 <td style="border: none;"><%= totalprice.to_s(:delimited) %>  円</td>
               </tr>
               <tr style="border: none;">
-                <td style="border: none; font-weight: bold;">送料</td>
+                <th style="border: none;">送料</td>
                 <td style="border: none;"><%= @order.postage %>  円</td>
               </tr>
 
               <% totalprice += @order.postage %>
 
               <tr style="border: none;">
-                <td style="border: none; font-weight: bold;">請求金額合計</td>
-                <td style="border: none;  font-weight: bold;"><%= totalprice.to_s(:delimited) %>  円</td>
+                <th style="border: none;">請求金額合計</td>
+                <th style="border: none;"><%= totalprice.to_s(:delimited) %>  円</td>
               <tr>
             </table>
           </div>

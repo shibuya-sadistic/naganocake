@@ -12,7 +12,7 @@ class Admins::OrderItemsController < ApplicationController
      		  		@order.update(status: 2) #注文ステータスを製作中へ更新する
       	  end
       	elsif @order.status == "in_production" #注文ステータスが製作中の場合
-              total = 0　
+              total = 0
               @order_items.each do |order_item|
       		    #if @order_item.previous_changes[:produce_status][0] == "in_production" && @order_item.previous_changes[:produce_status][1] == "production_completed"
                 if order_item.produce_status == "production_completed"
