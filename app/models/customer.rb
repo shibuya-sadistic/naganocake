@@ -8,6 +8,10 @@ class Customer < ApplicationRecord
   has_many :addresses
   has_many :orders
 
+  def self.find_for_authentication(conditions)
+    super(conditions.merge(:status => true))
+  end
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
