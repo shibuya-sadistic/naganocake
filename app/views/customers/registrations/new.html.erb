@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-9">
+    <div class="col-md-offset-1 col-md-9">
 
       <div class="customer-signup">
         <p class="customer-signup-text">新規会員登録</p>
@@ -10,64 +10,64 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="form-group row">
-            <%= f.label :名前, class: "col-sm-4" %>
-            <%= f.text_field :last_name, class: "form-control",style: "display: inline-block; width:auto;" %>
-            <%= f.text_field :first_name, class: "form-control",style: "display: inline-block; width:auto;" %>
+            <%= f.label :名前, class: "col-md-4" %>
+            <%= f.text_field :last_name, class: "form-control",style: "display: inline-block; width:auto;",placeholder: "姓" %>
+            <%= f.text_field :first_name, class: "form-control",style: "display: inline-block; width:auto;",placeholder: "名" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :フリガナ, class: "col-sm-4" %>
-            <%= f.text_field :last_name_kana, class: "form-control",style: "display: inline-block; width:auto;" %>
-            <%= f.text_field :first_name_kana, class: "form-control",style: "display: inline-block; width:auto;" %>
+            <%= f.label :フリガナ, class: "col-md-4" %>
+            <%= f.text_field :last_name_kana, class: "form-control",style: "display: inline-block; width:auto;",placeholder: "セイ" %>
+            <%= f.text_field :first_name_kana, class: "form-control",style: "display: inline-block; width:auto;",placeholder: "メイ" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :メールアドレス, class: "col-sm-4" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",style: "display: inline-block; width:50%;" %>
+            <%= f.label :メールアドレス, class: "col-md-4" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",style: "display: inline-block; width:auto;" %>
           </div>
 
             <span class="p-country-name" style="display:none;">Japan</span>
             <input type="hidden" class="p-country-name">
 
             <div class="form-group row">
-            <%= f.label :郵便番号（ハイフンなし）, class: "col-sm-4" %>
-            <%= f.text_field :postcode, class: "form-control p-postal-code", style: "display: inline-block; width:auto;" %>
+            <%= f.label :郵便番号（ハイフンなし）, class: "col-md-4" %>
+            <%= f.text_field :postcode, class: "form-control p-postal-code", style: "display: inline-block; width:auto;",placeholder: "半角数字で入力" %>
             </div>
 
             <div class="form-group row">
-            <%= f.label :住所, class: "col-sm-4" %>
+            <%= f.label :住所, class: "col-md-4" %>
             <%= f.text_field :address, class: "form-control p-region p-locality p-street-address p-extended-address", style: "display: inline-block; width:50%;" %>
             </div>
 
           <div class="form-group row">
-            <%= f.label :電話番号（ハイフンなし）, class: "col-sm-4" %>
-            <%= f.text_field :tel, class: "form-control", style: "display: inline-block; width:auto;" %>
+            <%= f.label :電話番号（ハイフンなし）, class: "col-md-4" %>
+            <%= f.text_field :tel, class: "form-control", style: "display: inline-block; width:auto;", placeholder: "半角数字で入力" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :パスワード（６文字以上）, class: "col-sm-4" %>
+            <%= f.label :パスワード（６文字以上）, class: "col-md-4" %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :パスワード（確認用）, class: "col-sm-4" %>
+            <%= f.label :パスワード（確認用）, class: "col-md-4" %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="actions">
-            <button class="log-in btn btn-success col-sm-offset-5 col-sm-3" type="submit">新規登録</button>
+            <button class="log-in btn btn-success col-md-offset-5 col-md-3" type="submit">新規登録</button>
           </div>
 
         <% end %>
 
     </div>
 
-    <div class="col-sm-offset-1 col-sm-9">
+    <div class="col-md-offset-1 col-md-9">
       <div class="customer-login">
         <p class="customer-login-text">既に登録済みの方</p>
       </div>
 
-      <div class="col-sm-offset-1">
+      <div class="col-md-offset-1">
          <p class="customer-signin-path">
           <%=link_to 'こちら', new_customer_session_path %>からログインしてください。</p>
       </div>

@@ -14,14 +14,16 @@
 		</div>
 		<div class="col-xs-9">
 			<div class="row recommend-products">
-				<%# genre = Genre.where(status: true) %>
-				<%# product = Product.all %>
-				<%# @products = genre.product %>
-				<%# @products = Product.where(status: true) %>
 
-				<h3 class="col-xs-12">商品一覧（全<%= @preproducts.count %>件）</h3>
+				<h3 class="col-xs-12">
+					<% if params[:genre_id] %>
+					<%= @genre.name %>一覧（全<%= @preproducts.count %>件)
+					<% else %>
+					商品一覧（全<%= @preproducts.count %>件)
+					<% end %>
+				</h3>
+
 				<% @products.each do |product| %>
-				<%# if product.genre.status == true %>
 					<div class="product col-xs-3">
 						<%= link_to product, class: "" do %>
 							<%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', size: '150x150' %>
@@ -30,7 +32,6 @@
 						<p>￥<%= product.price %></p>
 					</div>
 				<% end %>
-				<%# end %>
 				<div class="col-xs-12">
 					<div style="text-align: center;">
 						<%= paginate @products, class: "paginate" %>

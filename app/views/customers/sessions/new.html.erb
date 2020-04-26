@@ -10,12 +10,12 @@
           
           <div class="form-group row">
             <%= f.label :メールアドレス, class: "col-sm-offset-2 col-sm-3" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-7" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",style: "display: inline-block; width:50%" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :パスワード, class: "col-sm-offset-2 col-sm-3" %>
-            <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-7" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control",style: "display: inline-block; width:50%;" %>
           </div>
 
           <div class="forget-password">
