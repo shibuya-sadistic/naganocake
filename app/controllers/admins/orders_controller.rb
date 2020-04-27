@@ -29,7 +29,7 @@ class Admins::OrdersController < ApplicationController
 
       	end
 
-      	redirect_to admins_order_path(@order), turbolinks: false
+      	# redirect_to admins_order_path(@order), turbolinks: false
 
 	end
 

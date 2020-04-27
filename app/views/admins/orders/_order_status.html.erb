@@ -1,0 +1,7 @@
+				  <%= form_with(model: [:admins, order]) do |f| %>
+
+				  <div class="flex">
+                  <%= f.select :status, Order.statuses_i18n.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}, {selected: order.status}, {class: 'form-control', style: "width:40%;margin-right:10px;"} %>
+                  <%= f.submit "更新", class: "btn btn-primary" %>
+                  </div>
+                  <% end %>

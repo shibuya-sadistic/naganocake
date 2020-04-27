@@ -92,16 +92,9 @@
     </header>
     <div class="wrapper">
     <div class="container">
-      <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <p class="success"><%= flash[:notice] %></p>
-        </div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert alert-danger">
-          <p class="alert"><%= flash[:alert] %></p>
-        </div>
-      <% end %>
+      <div id="flash">
+        <%= render "layouts/flash" %>
+      </div>
 
     <%= yield %>
     </div>
