@@ -24,12 +24,16 @@
 					<h3><%= @product.name %></h3>
 					<p><%= @product.introduction %></p>
 					<p><span style="font-weight: bold; font-size: 2rem;">￥<%= price.round %></span><span style="margin-left: 10px;">(税込)</span></p>
-					<%= form_with model: @cart_item, url: cart_items_path(@product), class: "form-inline" do |form| %>
-					<div class="form-group">
-					  <%= form.select :piece, [ ["1", 1],["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9] ], {:prompt => "選択してください"}, {class: "form-control"} %>
-					</div>
-					<%= form.hidden_field :product_id, value: @product.id %>
-					<%= form.submit "カートに入れる", class: "btn btn-primary" %>
+					<% if @product.status == true %>
+						<%= form_with model: @cart_item, url: cart_items_path(@product), class: "form-inline" do |form| %>
+						<div class="form-group">
+					  		<%= form.select :piece, [ ["1", 1],["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9] ], {:prompt => "選択してください"}, {class: "form-control"} %>
+						</div>
+						<%= form.hidden_field :product_id, value: @product.id %>
+						<%= form.submit "カートに入れる", class: "btn btn-primary" %>
+						<% end %>
+					<% else %>
+						売り切れ
 					<% end %>
 				</div>
 			</div>

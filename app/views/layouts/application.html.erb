@@ -41,6 +41,14 @@
    </li>
    <li><%= link_to "ジャンル管理",admins_genres_path %>
    </li>
+   <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+   </li>
+   <li>
+      <%= form_tag(:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :name => nil %>
+    <% end %>
+  </li>
    <% else %>
    <li>
    <%= link_to "商品一覧", products_path %>

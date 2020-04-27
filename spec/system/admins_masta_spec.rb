@@ -37,7 +37,7 @@ describe "アドミンのテスト" do
 			it "ジャンルを追加" do
 				click_link "ジャンル管理"
 				fill_in "genre[name]", with: "ケーキ"
-				check "有効"
+				choose "有効"
 				click_button "追加"
 				expect(page).to have_content 'ケーキ'
 				expect(page).to have_content '有効'
@@ -45,7 +45,7 @@ describe "アドミンのテスト" do
 		end
 		context "商品画面への遷移と登録" do
 			let(:admin) { create(:admin)}
-			let(:genre) { create(:genre)}
+			let!(:genre) { create(:genre)}
 			before do
 				visit new_admin_session_path
 				fill_in 'admin[email]', with: admin.email
@@ -56,7 +56,7 @@ describe "アドミンのテスト" do
 				click_link "商品一覧"
 				expect(current_path).to eq(admins_products_path)
 			end
-			it "商品画面を追加→ログアウト" do
+			it "商品を追加→ログアウト" do
 				click_link "商品一覧"
 				click_link "+"
 				fill_in "product[name]", with: "シフォンケーキ"
@@ -82,7 +82,7 @@ describe "アドミンのテスト" do
 				expect(page).to have_content 'ガトーショコラ'
 				click_button "ログアウト"
 
-				expect(current_path).to eq(new_admin_session_path)
+				expect(current_path).to eq(root_path)
 			end
 		end
 	end
