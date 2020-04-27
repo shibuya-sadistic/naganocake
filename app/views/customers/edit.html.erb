@@ -1,1 +1,23 @@
-<h1>customers edit</h1>
+<div class="container">
+	<div class="row">
+		<%= form_with(model: current_customer, url: customers_path, method: :put, local: true) do |f| %>
+
+		  <div class="form-group">
+		    <%= f.label :password, "変更後のパスワード", :class => "form-label" %>
+		    <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", style: "width:auto;" %>
+		    <% if @minimum_password_length %>
+		    <div class="small form-text text-muted">最低<%= @minimum_password_length %>文字以上</div>
+		    <% end %>
+		  </div>
+		 
+		  <div class="form-group">
+		    <%= f.label :password_confirmation, "変更後のパスワード(確認)", :class => "form-label" %><br />
+		    <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=>"form-control", style: "width:auto;" %>
+		  </div>
+
+		  <div class="actions">
+		    <%= f.submit "変更する", class: "btn btn-primary" %>
+		  </div>
+		<% end %>
+	</div>
+</div>
