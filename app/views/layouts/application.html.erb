@@ -89,6 +89,7 @@
         </div>
       </nav>
     </header>
+    <div class="wrapper">
     <div class="container">
       <% if flash[:notice] %>
         <div class="alert alert-success">
@@ -102,6 +103,7 @@
       <% end %>
 
     <%= yield %>
+    </div>
 
     <footer class="footer">
       <div class="push"></div>
