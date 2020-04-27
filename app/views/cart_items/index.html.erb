@@ -1,4 +1,3 @@
-<div class = "container">
 	<div class = "row">
 		<div class = "col-xs-12">
 			<h3 class="cart">ショッピングカート</h3>
@@ -22,13 +21,16 @@
 					<tr>
 						<td><%= attachment_image_tag cart_item.product, :image, :fill, 80, 60, format: 'jpeg', fallback: 'no_image.jpg', size: '40x30', class: "" %>
 							<%= cart_item.product.name  %></td>
-						<td><%= (cart_item.product.price*1.1).round %></td>
-						<td><%= form_for cart_item, url:cart_item_path(cart_item)do |f|  %>
-							<%= f.number_field :piece,min:1,max:100 %>
-							<%= f.submit '変更',class: 'btn btn-primary' %>
+						<td><%= (cart_item.product.price*1.1).round.to_s(:delimited) %></td>
+						<td>
+							<%= form_for cart_item, url:cart_item_path(cart_item)do |f|  %>
+							<div class="inline">
+								<%= f.number_field :piece,min:1,max:100, class: "form-control piece-form" %>
+								<%= f.submit '変更',class: 'btn btn-primary' %>
+							</div>
 							<% end %>
 						</td>
-						<td><%= ((cart_item.product.price*1.1).round)*cart_item.piece %>
+						<td><%= (((cart_item.product.price*1.1).round)*cart_item.piece).to_s(:delimited) %>
 						</td>
 						<td class="text-center"><%= link_to "削除する",cart_item_path(cart_item.id),method: :delete, class: "btn btn-danger" %>
 						</td>
@@ -43,7 +45,7 @@
 				<table class = "table table-bordered">
 					<tr>
 						<th>合計金額</th>
-						<td><%= totalprice %>円</td>
+						<td><%= totalprice.to_s(:delimited) %>円</td>
 					</tr>
 				</table>
 			</div>
