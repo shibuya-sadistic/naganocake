@@ -28,7 +28,7 @@
             <tr>
               <th class="active">支払方法</td>
               <td>
-                <%= @order.payment_i18n %></td>
+                <%= @order.payment %></td>
             </tr>
             <tr>
               <th class="active">注文ステータス</td>
@@ -77,7 +77,7 @@
                     <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, selected: order_item.produce_status %>
 
                   </td>
-                  <td><button class="btn btn-primary" type="submit">更新</button></td>
+                  <td class="update-button"><button class="btn btn-primary" type="submit">更新</button></td>
                   <% end %>
                 </tr>
                 <% end %>
