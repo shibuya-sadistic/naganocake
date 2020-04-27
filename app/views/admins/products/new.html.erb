@@ -18,12 +18,12 @@
       <div class="col-md-5">
           <div class="form-group row">
             <%= f.label :商品名, class: "col-md-4" %>
-            <%= f.text_field :name, class: "col-md-6" %>
+            <%= f.text_field :name, class: "form-control col-md-6", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :商品説明, class: "col-md-4" %>
-            <%= f.text_area :introduction, class: "col-md-6" %>
+            <%= f.text_area :introduction, class: "form-control col-md-6", style: "display: inline-block; width:auto;" %>
           </div>
 
           <div class="form-group row">
@@ -34,7 +34,7 @@
 
           <div class="form-group row">
             <%= f.label :税抜価格, class: "col-md-4" %>
-            <%= f.text_field :price, class: "col-md-6" %>
+            <%= f.text_field :price, class: "form-control col-md-6", style: "display: inline-block; width:auto;" %>
           </div>
           <div class="form-group row">
             <%= f.label :status, "販売ステータス", class: "col-md-4" %>

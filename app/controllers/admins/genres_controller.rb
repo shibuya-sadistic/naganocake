@@ -8,8 +8,13 @@ end
 
 def create
 	@genre = Genre.new(genre_params)
-	@genre.save
+	if @genre.save
 	redirect_to admins_genres_path
+  else
+  @genre = Genre.new
+  @genres = Genre.all
+  render 'index'
+  end
 end
 
 def edit

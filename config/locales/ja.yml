@@ -18,7 +18,7 @@ ja:
         production_completed: 製作完了
   activerecord:
     models:
-      customer:
+      customer: 会員情報
     attributes:
       customer:
         last_name: 名前（姓）
@@ -31,4 +31,11 @@ ja:
         tel: 電話番号
         password: パスワード
         password_confirmation: パスワード（確認用）
+  views:
+    pagination:
+      first: "&laquo; "
+      last: " &raquo;"
+      previous: "&lsaquo; "
+      next: " &rsaquo;"
+      truncate: "..."
 

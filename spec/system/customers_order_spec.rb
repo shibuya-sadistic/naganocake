@@ -147,7 +147,8 @@ describe '登録～注文' do
         click_button "更新", match: :first
         expect(order.reload.status).to eq 'shipped' #4
 
-        #click_link "ログアウト
+        #click_link "ログアウト"
+
         #expect(current_path).to eq(new_admin_session_path)
 
       end
