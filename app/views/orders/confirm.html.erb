@@ -1,1 +1,76 @@
-<h1>orders confirm</h1>
+	<div class="row">
+		<div class="confirmation col-xs-12">
+			<h3>注文情報確認</h3>
+			<div class="row">
+				<div class="col-xs-7">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th>商品名</th>
+								<th>単価（税込）</th>
+								<th>数量</th>
+								<th>小計</th>
+							</tr>
+							<% totalprice = 0 %>
+								<% @cart_items.each do |cart_item| %>
+							<tr>
+								<td><%= attachment_image_tag cart_item.product, :image, :fill, 80, 60, format: 'jpeg', fallback: 'no_image.jpg', size: '40x30', class: "" %> <%= cart_item.product.name %></td>
+								<td>
+									<%= ((cart_item.product.price * 1.1).round).to_s(:delimited) %></td>
+								<td><%= cart_item.piece %></td>
+									<% subtotal = (((cart_item.product.price * 1.1).round) * cart_item.piece ) %>
+									<% totalprice += subtotal %>
+								<td><%= subtotal %></td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-4 col-xs-offset-1">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th>送料</th>
+								<td><%= 800 %></td>
+							</tr>
+							<tr>
+								<th>商品合計</th>
+								<td><%= totalprice.to_s(:delimited) %></td>
+							</tr>
+							<tr>
+								<th>請求金額</th>
+								<td><%= ((totalprice) + 800).to_s(:delimited) %></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="order-info col-xs-12">
+					<h3 style="margin-right: 3.5rem;">支払い方法</h3>
+					<p><%= @order.payment_i18n %></p>
+				</div>
+				<div class="order-info col-xs-12">
+					<h3 style="margin-right: 6rem;">お届け先</h3>
+					<p><%=@order.postcode %><%=@order.address %><br>
+						<%=@order.destination %></p>
+				</div>
+				<div class="col-xs-12 text-center">
+					<%= form_with  method: :post, url: orders_path do |f| %>
+					<%= f.hidden_field :postcode, value: @order.postcode  %>
+					<%= f.hidden_field :address, value: @order.address %>
+					<%= f.hidden_field :destination, value: @order.destination %>
+					<%= f.hidden_field :payment ,value: 0 %>
+					<%= f.hidden_field :status, value: 0 %>
+					<%= f.hidden_field :customer_id, value: current_customer.id %>
+					<%= f.hidden_field :postage, value: 800 %>
+					<% if @address %>
+					<%= f.hidden_field :new_postcode, value: @address.postcode %>
+					<%= f.hidden_field :new_address, value: @address.address %>
+					<%= f.hidden_field :new_destination,value: @address.destination %>
+					<% end %>
+					<%= f.submit "注文を確定する", class: "btn btn-success" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

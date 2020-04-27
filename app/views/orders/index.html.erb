@@ -1,1 +1,37 @@
-<h1>orders index</h1>
+	<div class="row">
+		<h3>注文履歴一覧</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="active">注文日</th>
+					<th class="active">配送先</th>
+					<th class="active">注文商品</th>
+					<th class="active">支払金額</th>
+					<th class="active">ステータス</th>
+					<th class="active">注文詳細</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
+				<tr>
+					<td><%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+					<td>
+					<%= order.postcode %><br>
+					<%= order.address %><br>
+					<%= order.destination %><br>
+				    </td>
+				    <td><% totalprice = 0 %>
+				    	<% order.order_items.each do |order_item| %>
+				    	<% totalprice +=(order_item.product.price * 1.1) * order_item.piece %>
+				    <%= order_item.product.name %>
+				    <% end %>
+				    </td>
+				    <td><%= totalprice.round.to_s(:delimited) %></td>
+					<td><%= t("enums.order.status.#{order.status}") %></td>
+					<td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
