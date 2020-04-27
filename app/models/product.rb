@@ -16,5 +16,4 @@ class Product < ApplicationRecord
     value.tr!('０-９', '0-9') if value.is_a?(String)
     super(value)
   end
-
 end

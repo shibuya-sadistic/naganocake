@@ -7,6 +7,7 @@
       </div>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
           
           <div class="form-group row">
             <%= f.label :メールアドレス, class: "col-md-offset-2 col-sm-3" %>
