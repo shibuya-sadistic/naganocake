@@ -25,7 +25,7 @@
 					<p><%= @product.introduction %></p>
 					<p><span style="font-weight: bold; font-size: 2rem;">￥<%= price.round %></span><span style="margin-left: 10px;">(税込)</span></p>
 					<% if @product.status == true %>
-						<%= form_with model: @cart_item, url: cart_items_path(@product), class: "form-inline" do |form| %>
+						<%= form_with model: @cart_item, url: cart_items_path(@product), local: true, class: "form-inline" do |form| %>
 						<div class="form-group">
 					  		<%= form.select :piece, [ ["1", 1],["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9] ], {:prompt => "選択してください"}, {class: "form-control"} %>
 						</div>

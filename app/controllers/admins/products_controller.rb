@@ -24,8 +24,11 @@ class Admins::ProductsController < ApplicationController
   def index
       # genre = Genre.where(status: true)
       # @products = Product.where(genre_id: params[:genre_id])
-
-      @products = Product.page(params[:page])
+      if params[:search]
+        @products = Product.where(['name LIKE ?', "%#{params[:search]}%"]).page(params[:page])
+      else
+        @products = Product.page(params[:page])
+      end
 
   end
 
