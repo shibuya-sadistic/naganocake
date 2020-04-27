@@ -10,78 +10,50 @@
 #    password: '123456'
 # )
 
-50.times do
-  # gimei = Gimei.new
+# 50.times do
+#   # gimei = Gimei.new
 
-  Customer.create!(
-    last_name: Gimei.last.kanji,
-    first_name: Gimei.first.kanji,
-    last_name_kana: Gimei.last.katakana,
-    first_name_kana: Gimei.first.katakana,
-    postcode: sprintf("%.7d", rand(10000000)),
-    address: Gimei.address.kanji,
-    tel: "1234567890",
-    status: true,
-    email: Faker::Internet.email,
-    password: "123456",
-    password_confirmation: "123456"
-  )
-end
+#   Customer.create!(
+#     last_name: Gimei.last.kanji,
+#     first_name: Gimei.first.hiragana,
+#     last_name_kana: Gimei.last.kanji,
+#     first_name_kana: Gimei.first.hiragana,
+#     postcode: sprintf("%.7d", rand(10000000)),
+#     address: Gimei.address.kanji,
+#     tel: "123456789",
+#     status: true,
+#     email: Faker::Internet.email,
+#     password: "123456",
+#     password_confirmation: "123456"
+#   )
+# end
 
-# Genre.create(
-# 	name: "ケーキ",
-# 	status: true)
+Genre.create(
+	name: "test1",
+	status: true)
 
-# Genre.create(
-# 	name: "プリン",
-# 	status: true)
+Genre.create(
+	name: "test2",
+	status: true)
 
-# Genre.create(
-# 	name: "焼き菓子",
-# 	status: true)
+Genre.create(
+	name: "test3",
+	status: true)
 
-# Genre.create(
-# 	name: "キャンディ",
-# 	status: true)
+Genre.create(
+	name: "test4",
+	status: true)
 
 10.times do
 
 	random = Random.new
 
 	Product.create!(
-		name: "ケーキ",
-		introduction: "おいしい",
+		name: "test",
+		introduction: "test",
 		genre_id: random.rand(1..4),
 		price: "500",
 		image_id: "1",
 		status: true
 		)
-end
-
-15.times do
-
-	random = Random.new
-
-	Order.create!(
-		customer_id: 2,
-		postage: 800,
-		destination: "宛先",
-		postcode: sprintf("%.7d", rand(10000000)),
-		address: "東京都",
-		payment: random.rand(0..1),
-		status: 0
-		)
-end
-
-10.times do
-
-	random = Random.new
-
-	OrderItem.create!(
-		order_id: random.rand(1..5),
-    	product_id: random.rand(1..5),
-    	produce_status: 0,
-    	price: "500",
-    	piece: random.rand(1..3)
-    )
 end

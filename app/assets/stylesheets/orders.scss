@@ -1,31 +1,3 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.complete-message {
-	height: 70vh;
-	display: flex; /* 子要素をflexboxで揃える */
-    justify-content: center; /* 子要素をflexboxにより中央に配置する */
-    align-items: center;  /* 子要素をflexboxにより中央に配置する */
-}
-.order-info {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-	margin-top: 20px;
-	h3 {
-		margin: 0;
-	}
-	p {
-		margin: 0;
-	}
-}
-.flex {
-	display: flex;
-	align-items: center;
-	margin: 10px 0 10px 0;
-	p {
-		margin: 0;
-		width: 40%;
-	}
-}

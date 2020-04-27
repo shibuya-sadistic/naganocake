@@ -57,8 +57,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -72,7 +72,3 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'jp_prefecture'
-gem 'enum_help'
-gem 'rails-i18n', '~> 5.1'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
