@@ -24,3 +24,35 @@
 .field_with_errors {
 	display: inline;
 }
+.navbar-collapse {
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.navbar-brand {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.navbar-text {
+	margin-top: 35px;
+	margin-bottom: 10px;
+}
+.footer {
+	height: 50px;
+	width: 100%;
+	background-color: #3f3f3f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer-text {
+	margin: 0;
+	color: white;
+}
+.container {
+	min-height: calc(100vh - 203px);
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}

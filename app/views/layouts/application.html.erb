@@ -24,6 +24,9 @@
               <span class="icon-bar"></span>
             </button>
             <%= link_to "NaganoCake", root_path, class: "navbar-brand text-success", style: "color:black;font-weight: bold;" %>
+            <% if customer_signed_in? %>
+              <p class="navbar-text">ようこそ<%= current_customer.last_name %>さん。</p>
+            <% end %>
           </div>
 
           <% if customer_signed_in? %>
@@ -37,7 +40,6 @@
               <li><%= link_to "カート", cart_items_path %></li>
               <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
             </ul>
-            <p class="navbar-text">ようこそ<%= current_customer.last_name %>さん。</p>
             <%= form_tag(products_path, method: :get,class: "navbar-form navbar-left",id:"example_id") do %>
               <div class="form-group">
                 <%= text_field_tag :search,"", class: "form-control", placeholder: "検索キーワード" %>
@@ -98,8 +100,12 @@
           <p class="alert"><%= flash[:alert] %></p>
         </div>
       <% end %>
-    </div>
 
     <%= yield %>
+
+    <footer class="footer">
+      <div class="push"></div>
+      <p class="footer-text">NaganoCake</p>
+    </footer>
   </body>
 </html>
