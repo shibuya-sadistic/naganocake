@@ -1,8 +1,16 @@
 class AddressesController < ApplicationController
 	before_action :authenticate_customer!
+	before_action :correct_customer,{only:[:edit, :destroy]}
 
+def correct_customer
+	if @customer.id != current_customer.id
+		flash[:notice]="ダメです"
+		redirect_to root_path
+	end
+end
 def index
-	@addresses = Address.all
+	@customer = Customer.find(current_customer.id)
+	@addresses = @customer.addresses
 	@address = Address.new
 end
 
@@ -19,6 +27,7 @@ def create
 end
 
 def edit
+	@customer = Customer.find(current_customer.id)
 	@address = Address.find(params[:id])
 end
 
