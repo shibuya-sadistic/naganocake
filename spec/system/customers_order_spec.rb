@@ -112,7 +112,7 @@ describe '登録～注文' do
         expect(page).to have_content('注文一覧画面')
         expect(page).to have_link order.created_at.strftime("%Y/%m/%d %H:%M:%S"), href: admins_order_path(order)
 
-        click_link order.created_at.strftime("%Y/%m/%d %H:%M:%S")
+        click_link order.created_at.strftime("%Y/%m/%d %H:%M:%S"), match: :first
 
         visit admins_order_path(order)
 
@@ -148,6 +148,7 @@ describe '登録～注文' do
         expect(order.reload.status).to eq 'shipped' #4
 
         #click_link "ログアウト"
+
         #expect(current_path).to eq(new_admin_session_path)
 
       end
