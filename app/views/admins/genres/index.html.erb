@@ -7,7 +7,7 @@
                   <div class="form-group">
                     <%= f.label :ジャンル, class: "col-md-2" %>
                     <%= f.text_field :name, class: "form-control col-md-2", style: "display: inline-block; width: auto;" %>
-                    <div class="radio-button">
+                    <div>
                       <%= f.radio_button :status, :true %>
                       <%= f.label :status, "有効", {value: :true, style: "width: 10%" } %>
                       <%= f.radio_button :status, false %>
