@@ -40,7 +40,7 @@
         						<%=f.radio_button :address,"既存の住所" %>
         						<%= f.label :address, "既存の住所" %>
 	        						<div class="col-xs-offset-2">
-	        						<%= f.collection_select :pre_address, current_customer.addresses, :id, :deliverd, {prompt: ""} %>
+	        						<%= f.collection_select :pre_address, current_customer.addresses, :id, :deliverd, {prompt: "選択してください"},{class: "form-control"} %>
        								</div>
       							</div>
       						</td>
