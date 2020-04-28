@@ -80,7 +80,7 @@ describe "アドミンのテスト" do
 				expect(page).to have_content 'ガトーショコラ'
 				click_link "商品一覧"
 				expect(page).to have_content 'ガトーショコラ'
-				click_button "ログアウト"
+				click_link "ログアウト"
 
 				expect(current_path).to eq(root_path)
 			end

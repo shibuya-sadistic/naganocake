@@ -56,3 +56,14 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+@media screen and (max-width:767px) {
+ 	header {
+ 		.header-form {
+ 			display: flex;
+ 			input:last-child {
+ 				margin-left: 10px;
+ 			}
+ 		}
+ 	}
+ }

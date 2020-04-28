@@ -1,8 +1,13 @@
 class OrdersController < ApplicationController
 	def new
+		if current_customer.cart_items == []
+			flash[:alert] = "カートが空です"
+			redirect_to root_path
+		end
 	end
 
 	def confirm
+		unless current_customer.cart_items == []
 		@order = Order.new
 		if params[:address] == "ご自身の住所"
 			@order.postcode = current_customer.postcode
@@ -23,7 +28,11 @@ class OrdersController < ApplicationController
 			@order.destination = @address.destination
 		end
 			@cart_items = current_customer.cart_items
-		@order.payment = params[:payment].to_i
+			@order.payment = params[:payment].to_i
+		else
+			flash[:alert] = "カートが空です"
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -66,7 +75,11 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@order=Order.find(params[:id])
+		if params[:id] == "confirm"
+			redirect_to root_path
+		else
+			@order=Order.find(params[:id])
+		end
 	end
 
 	private

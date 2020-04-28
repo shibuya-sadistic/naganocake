@@ -1,0 +1,59 @@
+				<div class="col-md-7">
+
+            <table class="table table-bordered">
+              <thead>
+                <tr class="active">
+                  <th>商品名</th>
+                  <th>単価（税込）</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                  <th>製作ステータス</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+				<% totalprice = 0 %>
+				<% order_items.each do |order_item| %>
+
+                <% price = (order_item.price * 1.1).round %>
+                <% subtotal = price * order_item.piece %>
+                <% totalprice += subtotal %>
+
+                <tr>
+                  <%= form_with(model: [:admins, order_item]) do |f| %>
+                  <td><%= order_item.product.name %></td>
+                  <td><%= price.to_s(:delimited) %></td>
+                  <td><%= order_item.piece.to_s(:delimited) %></td>
+                  <td><%= subtotal.to_s(:delimited) %></td>
+                  <td>
+                    <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, {selected: order_item.produce_status}, {class: 'form-control', style: "width:70%;"} %>
+
+                  </td>
+                  <td class="update-button"><%= f.submit "更新", class: "btn btn-primary" %></td>
+                  <% end %>
+                  </tr>
+                <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="total-price col-md-offset-1 col-md-4">
+            <table class="table">
+
+              <tr style="border: none;">
+                <th style="border: none;">商品合計</td>
+                <td style="border: none;"><%= totalprice.to_s(:delimited) %>  円</td>
+              </tr>
+              <tr style="border: none;">
+                <th style="border: none;">送料</td>
+                <td style="border: none;"><%= order.postage %>  円</td>
+              </tr>
+
+              <% totalprice += order.postage %>
+
+              <tr style="border: none;">
+                <th style="border: none;">請求金額合計</td>
+                <th style="border: none;"><%= totalprice.to_s(:delimited) %>  円</td>
+              <tr>
+            </table>
+          </div>

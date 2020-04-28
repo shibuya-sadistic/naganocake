@@ -17,25 +17,32 @@ before_action :authenticate_customer!, only: [:index, :update, :destroy, :destro
 	end
 
 	def index
-		@cart_items = current_customer.cart_items.all
+		@cart_items = current_customer.cart_items
 	end
 
 	def update
 		@cart_item = CartItem.find(params[:id])
 		@cart_item.update(cart_item_params)
-		redirect_to cart_items_path
+		flash[:notice] = "数量を変更しました"
+		@cart_items = current_customer.cart_items
 	end
 
 	def destroy
 		cart_item=CartItem.find(params[:id])
 		cart_item.destroy
-		redirect_to cart_items_path
+		flash[:notice] = "カートから削除しました"
+		@cart_items = current_customer.cart_items
 	end
 
 	def destroy_all
-		cart_items = current_customer.cart_items
-		cart_items.destroy_all
-		redirect_to cart_items_path,notice:"カートを空にしました"
+		unless current_customer.cart_items == []
+			cart_items = current_customer.cart_items
+			cart_items.destroy_all
+			flash[:notice] = "カートを空にしました"
+			@cart_items = current_customer.cart_items
+		else
+			redirect_to cart_items_path
+		end
 	end
 
 	private

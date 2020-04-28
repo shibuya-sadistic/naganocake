@@ -27,7 +27,7 @@ class Admins::OrderItemsController < ApplicationController
 
 
       	
-      	redirect_to admins_order_path(@order), turbolinks: false
+      	# redirect_to admins_order_path(@order), turbolinks: false
      	# redirect_to admins_order_path(order.id)
 	end
 
