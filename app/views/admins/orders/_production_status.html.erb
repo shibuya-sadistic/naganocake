@@ -20,17 +20,18 @@
                 <% totalprice += subtotal %>
 
                 <tr>
-                  <%= form_with(model: [:admins, order_item]) do |f| %>
                   <td><%= order_item.product.name %></td>
                   <td><%= price.to_s(:delimited) %></td>
                   <td><%= order_item.piece.to_s(:delimited) %></td>
                   <td><%= subtotal.to_s(:delimited) %></td>
                   <td>
-                    <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, {selected: order_item.produce_status}, {class: 'form-control', style: "width:70%;"} %>
-
+                    <%= form_with(model: [:admins, order_item]) do |f| %>
+                    <div class="flex">
+                      <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, {selected: order_item.produce_status}, {class: 'form-control', style: "width:70%;margin-right:10px;"} %>
+                      <%= f.submit "更新", class: "btn btn-primary" %>
+                    </div>
+                    <% end %>
                   </td>
-                  <td class="update-button"><%= f.submit "更新", class: "btn btn-primary" %></td>
-                  <% end %>
                   </tr>
                 <% end %>
                 </tbody>
