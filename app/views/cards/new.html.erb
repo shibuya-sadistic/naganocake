@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-xs-12 col-md -offset-1">
+	<h3>クレジットカード登録画面</h3>
+
+		<%= form_with(method: :post, url: cards_path, html: { name: "inputForm" }) do |f| %>
+
+			<div class="form-group">
+				<%= f.label :カード番号 %>
+				<%= f.text_field :card_number, type: "text", class: "form-control input-number", placeholder: "半角数字のみ:",　style: "width:50%;", maxlength: "16" %>
+				<ul>
+					<li class="card"><img src="/assets/visa.jpg" alt="" width="60" height="40"></li>
+					<li class="card"><img src="/assets/jcb.jpg" alt="" width="50" height ="30"></li>
+					<li class="card"><img src="/assets/american.png" alt="" width="60" height="40"></li>
+					<li class="card"><img src="/assets/master.jpg" alt="" width="50" height="30"></li>
+					<li class="card"><img src="/assets/diners.jpg" alt="" width="60" height="40"></li>
+					<li class="card"><img src="/assets/discover.jpg" alt="" width="50" height="30"></li>
+				</ul>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :有効期限 %>
+				<%= f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]], {}, class: 'form-control input-expire', style: " width:auto;" %>
+				<span>年</span>
+    			<%= f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'form-control input-expire', style: "width:auto;" %>
+     	 		<span>月</span>
+			</div>
+			<div class="form-group">
+				<%= f.text_field :cvc, type: 'text', class: 'form-control input-number',  placeholder: 'カード背面4桁もしくは3桁の番号', style: "width:50%;", maxlength: "4" %>
+			</div>
+			<div id="card_token">
+				
+			</div>
+
+			<%= f.submit '追加する', class: 'btn btn-primary', id: 'token_submit' %>
+		<% end %>
+	</div>
+</div>

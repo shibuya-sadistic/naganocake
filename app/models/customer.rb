@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :addresses
   has_many :orders
+  has_many :cards
 
   def self.find_for_authentication(conditions)
     super(conditions.merge(:status => true))

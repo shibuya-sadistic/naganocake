@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/customers/quit" => "customers#quit", as: "quit"
   put "/customers/hide" => "customers#hide", as: "hide"
   resources :addresses, only:[:index, :create, :destroy, :edit, :update]
+  resources :cards, only:[:new, :create, :index, :destroy]
 
   # admins routes
   namespace :admins do
