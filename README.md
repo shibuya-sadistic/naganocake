@@ -9,10 +9,10 @@ DMM WEB CAMPでのチーム開発課題。
 サイト全体の管理運営を行える管理者画面の作成。
 
 ### 使用言語
-・HTML/CSS
-・Ruby
-・JavaScript
-・フレームワーク Rails
+* HTML/CSS
+* Ruby
+* JavaScript
+* フレームワーク Rails
 
 ### gem
 * gimei
