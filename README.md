@@ -31,4 +31,4 @@ DMM WEB CAMPでのチーム開発課題。
 ## 作成者
 * げいつ()
 * ねっち(https://github.com/sekine11)
-* ひーさん()
+* ひーさん(https://github.com/hikari24)
