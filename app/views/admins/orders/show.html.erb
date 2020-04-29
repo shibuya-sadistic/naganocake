@@ -1,1 +1,51 @@
-<h1>admins orders show</h1>
+  <div class="row">
+    <h3 class="admin-order">注文詳細画面</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th class="active">購入者</td>
+              <td><%= link_to admins_customer_path(@order.customer_id) do %>
+                <%= @order.customer.last_name %>
+              <%= @order.customer.first_name %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <th class="active", style="border: none;">配送先</td>
+              <td style="border: none;">〒<%= @order.postcode%></td>
+            </tr>
+            <tr>
+              <th class="active", style="border: none;"></td>
+              <td style="border: none;"><%= @order.address %></td>
+            <tr>
+              <th class="active", style="border: none;"></td>
+              <td style="border: none;"><%= @order.destination %></td>
+            </tr>
+            <tr>
+              <th class="active">支払方法</td>
+              <td>
+                <%= @order.payment_i18n %></td>
+            </tr>
+            <tr>
+              <th class="active">注文ステータス</td>
+              <td>
+                <div id="order-status">
+                  <%= render 'admins/orders/order_status', order: @order %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+
+      <div class="row">
+          
+                  <div id="production-status">
+                    <%= render 'admins/orders/production_status', order_items: @order_items, order: @order %>
+                  </div>
+      </div>
+</div>
