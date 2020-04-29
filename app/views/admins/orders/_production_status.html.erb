@@ -8,7 +8,6 @@
                   <th>数量</th>
                   <th>小計</th>
                   <th>製作ステータス</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -27,8 +26,8 @@
                   <td>
                     <%= form_with(model: [:admins, order_item]) do |f| %>
                     <div class="flex">
-                      <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, {selected: order_item.produce_status}, {class: 'form-control', style: "width:70%;margin-right:10px;"} %>
-                      <%= f.submit "更新", class: "btn btn-primary" %>
+                    <%= f.select :produce_status, OrderItem.produce_statuses_i18n.keys.map {|k| [I18n.t("enums.order_item.produce_status.#{k}"), k]}, {selected: order_item.produce_status}, {class: 'form-control', style: "width:70%;margin-right:10px;"} %>
+                    <%= f.submit "更新", class: "btn btn-primary" %>
                     </div>
                     <% end %>
                   </td>
