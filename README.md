@@ -15,20 +15,20 @@ DMM WEB CAMPでのチーム開発課題。
 ・フレームワーク Rails
 
 ### gem
-・gimei
-・faker
-・devise
-・refile
-・refile-mini-magick
-・bootstrap-sass
-・kaminari
-・jp_prefecture
-・enum_help
-・rails-i18n
-・devise-i18n
-・devise-i18n-view
+* gimei
+* faker
+* devise
+* refile
+* refile-mini-magick
+* bootstrap-sass
+* kaminari
+* jp_prefecture
+* enum_help
+* rails-i18n
+* devise-i18n
+* devise-i18n-view
 
 ## 作成者
-・げいつ()
-・ねっち(https://github.com/sekine11)
-・ひーさん()
+* げいつ()
+* ねっち(https://github.com/sekine11)
+* ひーさん()
