@@ -29,6 +29,6 @@ DMM WEB CAMPでのチーム開発課題。
 * devise-i18n-view
 
 ## 作成者
-* げいつ()
+* げいつ(https://github.com/ozawatomoki0723)
 * ねっち(https://github.com/sekine11)
 * ひーさん(https://github.com/hikari24)
